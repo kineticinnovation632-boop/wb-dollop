@@ -1,0 +1,64 @@
+{% extends "kg/components/base-2.html" %} {% load static %} {% block page-title-content %}
+Exclusivity - Interested Developers {% endblock %}{% block service-titlebar %}
+
+<div class="titlebar-col col-12 col-lg-8 col-xl-6 px-15">
+  <h1>Exclusivity</h1>
+  <p class="mb-1/5em">List of interested Mini-Grid Developers.</p>
+
+  <a
+    class="titlebar-scroll-link"
+    href="#lqd-site-content"
+    data-localscroll="true"
+  >
+    <i class="lqd-icn-ess icon-ion-ios-arrow-down"></i>
+  </a>
+</div>
+
+{% endblock %} {% block content %}
+<section class="lqd-section has-accordion-page pt-100 bg-gray-200">
+  <div class="container">
+    <div class="row">
+      <h2 class="ld-fh-element relative mb-0/5em text-40">
+        List of Operator / Developers
+        <br />
+        <span class="text-16 font-normal d-block mt-1">
+          Interested Mini-Grid Developers: Click on each company name to see
+          their exclusive sites.
+        </span>
+      </h2>
+
+      <table class="table mb-2em" id="tb-exclusive" style="overflow-x: scroll">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Operator / Developer</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% if developers %}
+          <!-- Developers -->
+          {% for developer in developers %}
+          <tr>
+            <th scope="row" class="text-16">{{forloop.counter}}</th>
+            <td>
+              <a
+                class="rounded-full text-16"
+                href="{% url 'kg:developer-site' developer.slug %}"
+                >{{developer.name}}</a
+              >
+            </td>
+          </tr>
+          {% endfor %} 
+          
+          
+          {% endif %}
+        </tbody>
+      </table>
+
+      <!-- Add pagination here -->
+            {% include "kg/pages/partial/pagination.html" %}
+    </div>
+  </div>
+</section>
+
+{% endblock %} 

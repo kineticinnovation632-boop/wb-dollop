@@ -1,0 +1,169 @@
+{% load static %}
+
+<section
+  class="lqd-section what-we-do py-10 ca-initvalues-applied lqd-animations-done"
+  data-custom-animations="true"
+  data-ca-options='{"triggerHandler":"inview","animationTarget":".col","duration":"1800","delay":"180","ease":"power4.out","direction":"forward","initValues":{"y":35,"transformOriginX":50,"transformOriginY":50,"transformOriginZ":"0px","opacity":0},"animations":{"y":0,"transformOriginX":50,"transformOriginY":50,"transformOriginZ":"0px","opacity":1}}'
+  data-section-luminosity="light"
+>
+  <div class="container">
+    <div class="row">
+      {% if event %}
+      <div class="col col-12 lqd-unit-animation-done">
+        <div
+          class="w-full relative flex flex-col flex-grow-1 pt-40 pb-10 mb-50 border-bottom border-black module-line"
+        >
+          <div class="container-fluid p-0">
+            <div class="row items-center">
+              <div class="col col-2 animation-element lqd-unit-animation-done">
+                <div
+                  class="w-30percent relative flex border-top border-black-50"
+                ></div>
+              </div>
+              <div class="col col-8 animation-element lqd-unit-animation-done">
+                <h6
+                  class="ld-fh-element mb-0/5em text-12 uppercase tracking-0/01em font-normal text-black"
+                >
+                  Event Highlights <small class="text-5 font-normal text-primary">({{event.event_status}})</small>
+                  
+                </h6>
+              </div>
+              <div
+                class="col col-2 text-end sm:text-start animation-element lqd-unit-animation-done"
+              >
+                <h6 class="ld-fh-element mb-0/5em text-12 font-normal">
+                 {{event.event_date }} - {{event.event_time }}
+                </h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- IMG -->
+      <div class="col col-12 col-md-6 lqd-unit-animation-done">
+        <div
+          class="lqd-imggrp-container relative mb-2em transition-all ca-initvalues-applied lqd-animations-done"
+          data-custom-animations="true"
+          data-ca-options='{"triggerHandler":"inview","animationTarget":".lqd-imggrp-single","duration":"1800","delay":"160","ease":"power4.out","direction":"forward","initValues":{"y":65,"scaleY":1.1,"opacity":0},"animations":{"y":0,"scaleY":1,"opacity":1}}'
+        >
+          <div class="lqd-imggrp-inner flex flex-wrap justify-center">
+            {% if event.images %} {% for img in event.images %}
+            {% if forloop.counter == 1 %}
+            <div
+              class="lqd-imggrp-single block absolute top-10percent left-0 lqd-unit-animation-done"
+              data-shadow-style="4"
+            >
+              <div class="lqd-imggrp-img-container">
+                <figure>
+                  <img
+                    width="240"
+                    height="311"
+                    src="{{img.image}}"
+                    alt="{{img.title}}"
+                  />
+                </figure>
+              </div>
+            </div>
+            {% endif %}
+            {% if forloop.counter == 2 %}
+            <div
+              class="lqd-imggrp-single block absolute top-5percent right-0 lqd-unit-animation-done"
+              data-shadow-style="4"
+            >
+              <div class="lqd-imggrp-img-container">
+                <figure>
+                  <img
+                    width="240"
+                    height="311"
+                    src="{{img.image}}"
+                    alt="{{img.title}}"
+                  />
+                </figure>
+              </div>
+            </div>
+            {% endif %} {% endfor %} {% endif %}
+            {% if event.img %}
+            <div
+              class="lqd-imggrp-single block relative mt-140 module-img lqd-unit-animation-done"
+              data-shadow-style="4"
+            >
+              <div class="lqd-imggrp-img-container">
+                {% if event.youtube_video %}
+                <div
+                  class="lqd-imggrp-content lqd-imggrp-content-mid w-95 absolute-center"
+                >
+                  <div class="lqd-imggrp-content-inner">
+                    <a
+                      href="{{event.youtube_video}}"
+                      class="btn btn-naked fresco btn-icon-block btn-icon-top btn-icon-xl btn-icon-circle btn-icon-bordered btn-icon-ripple text-white"
+                      ><span
+                        class="inline-flex items-center py-1/15em px-2/1em transition-all"
+                        ><span
+                          class="translate-0 text-white text-26 border-white btn-icon"
+                          ><i
+                            class="lqd-icn-ess icon-ion-ios-play"
+                          ></i></span></span
+                    ></a>
+                  </div>
+                </div>
+                {% endif %}
+                <figure>
+                  <img
+                    width="240"
+                    height="311"
+                    src="{{event.img}}"
+                    alt="Consultation"
+                  />
+                </figure>
+              </div>
+            </div>
+            {% endif %} 
+          </div>
+        </div>
+      </div>
+      <!-- CONTENT -->
+      <div class="col col-12 col-md-6 lqd-unit-animation-done">
+        <div
+          class="module-content relative flex flex-col items-start pr-5percent pl-15percent lg:pr-0"
+        >
+          <p
+            class="ld-fh-element mb-0/5em text-12 uppercase tracking-0/05em text-black"
+          >
+            {{event.sub_title}}
+          </p>
+          <h2
+            class="ld-fh-element mb-0/4em text-65 leading-0/8em text-black text-init"
+            style="color: #c6b581"
+          >
+            {{event.title}}
+          </h2>
+          
+            {% if event.content and event.content|length > 0 %}
+            {% for content_item in event.content %}
+            {% if forloop.counter == 1 %}
+              <p
+                  class="ld-fh-element mb-10 text-16 leading-1/6em text-black"
+                  style="color: #5f6973; text-align: justify"
+                >
+                    {{ content_item|safe }}
+              </p>
+            {% endif %}
+
+            {% if forloop.counter == 2 %}
+              <p
+                    class="ld-fh-element mb-2em text-16 leading-1/6em text-black"
+                    style="color: #5f6973; text-align: justify"
+                  >
+                {{ content_item|safe }} <br />
+                <a href="{% url 'kg:blog' event.slug %}" class="text-primary">Continue reading</a>
+              </p>
+            {% endif %}
+            
+            {% endfor %}
+            {% endif %}
+        </div>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</section>

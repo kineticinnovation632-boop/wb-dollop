@@ -1,0 +1,160 @@
+{% load static %}
+
+<!-- Start Has Accordion -->
+ {% if documents and not empty %}
+<section class="lqd-section blog pt-100 pb-55" id="blog">
+  <div class="container">
+    <div class="row">
+      <div class="col col-12 mb-40">
+        <div class="w-full flex flex-col items-center text-center">
+          <div class="ld-fancy-heading relative w-full">
+            <h6 class="mb-1em ld-fh-element relative lowercase">
+              Regulations & Policies
+            </h6>
+          </div>
+          <div class="ld-fancy-heading relative w-full">
+            <h2 class="ld-fh-element mb-0/5em inline-block relative">
+              {{ title }} Documents
+            </h2>
+          </div>
+        </div>
+      </div>
+      <div class="col col-12">
+        <div class="row -mr-15 -ml-15 justify-center">
+          {% if documents and not empty %}
+            {% for document in documents %}
+            <div class="col col-sm-6 col-lg-4 mb-30 px-15 py-0">
+              <article
+                class="lqd-lp relative lqd-lp-style-6 lqd-lp-hover-img-zoom lqd-lp-animate-onhover rounded-4 overflow-hidden text-start post type-post status-publish format-standard has-post-thumbnail hentry category-blog-single tag-beauty tag-travel"
+              >
+              
+                <div class="lqd-lp-img overflow-hidden">
+                  <figure>
+                    {% if document.document and '.xlsx' in document.document or '.xls' in document.document %}
+                    <img
+                      width="720" height="510"
+                      src="{% static 'kg/assets/images/demo/company/excel.png' %}"
+                      alt="{{ document.title|default:'Document Image' }}"
+                    />
+                    {% elif document.document and '.pdf' in document.document %}
+                    <img
+                      width="720" height="510"
+                      src="{% static 'kg/assets/images/demo/company/pdf.png' %}"
+                      alt="{{ document.title|default:'Document Image' }}"
+                    />
+                    {% elif document.document and '.docx' in document.document or '.doc' in document.document %}
+                    <img
+                      width="720" height="510"
+                      src="{% static 'kg/assets/images/demo/company/word.png' %}"
+                      alt="{{ document.title|default:'Document Image' }}"
+                    />
+                    {% elif document.document and '.csv' in document.document %}
+                    <img
+                      
+                      width="720" height="510"
+                      src="{% static 'kg/assets/images/demo/company/csv.png' %}"
+                      alt="{{ document.title|default:'Document Image' }}"
+                    />
+                    {% elif document.document and '.png' in document.document or '.jpg' in document.document or '.jpeg' in document.document %}
+                    <img
+                      
+                      width="720" height="510"
+                      src="{% static 'kg/assets/images/demo/company/picture.png' %}"
+                      alt="{{ document.title|default:'Document Image' }}"
+                    />
+                    {% else %}
+                    <img
+                      width="720" height="510"
+                      src="{% static 'kg/assets/images/demo/company/alt_image.png' %}"
+                      alt="{{ document.title|default:'Document Image' }}"
+                    />
+                    {% endif %}
+                  </figure>
+                  <div class="lqd-lp-meta uppercase font-bold relative z-3">
+                    <span class="screen-reader-text">Tags</span>
+                    <ul
+                      class="lqd-lp-cat lqd-lp-cat-shaped lqd-lp-cat-solid reset-ul inline-ul font-bold uppercase tracking-0/1em"
+                    >
+                      <li>
+                        <a class="rounded-full" href="{% url 'kg:read-regulation' id=document.slug %}" rel="category"
+                          >Read more</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <header class="lqd-lp-header p-2rem">
+                  <div
+                    class="lqd-lp-meta lqd-lp-meta-dot-between flex flex-wrap items-center uppercase tracking-0/1em font-bold"
+                  >
+                    <div class="lqd-lp-author relative z-3">
+                      <div class="lqd-lp-author-info">
+                        <h3 class="mt-0 mb-0 h5">
+                          <a href="#">{{ document.regulation_category }}</a>
+                        </h3>
+                      </div>
+                    </div>
+                    <span class="lqd-lp-date"
+                      >{{document.downloads|default:0}} Downloads</span>
+                  </div>
+                  <h2 class="entry-title lqd-lp-title mt-0/75em mb-0 h5">
+                    {{ document.title|truncatewords:8 }}
+                  </h2>
+                </header>
+              </article>
+            </div>
+            {% endfor %}
+            <!-- Add pagination here -->
+             {% include "kg/pages/partial/pagination.html" %}
+          {% else %}
+          <p>No document found</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% else %}
+<section class="lqd-section has-accordion-page pt-100 bg-gray-200">
+    <div class="container">
+        <div class="row">
+        <div class="col col-12 col-xl-6">
+            <h2 class="ld-fh-element relative mb-0/5em text-40">
+            View and download {{ title }} Documents
+            </h2>
+            <p>No document found</p>
+        </div>
+        <div class="col col-12 col-xl-6 p-0">
+            <div
+            class="w-full relative flex items-center pl-20percent rounded-8 z-1 module-col"
+            data-parallax="true"
+            data-parallax-options='{"ease":["linear"],"start":"top bottom","end":"bottom+=0px top"}'
+            data-parallax-from='{"y":"60px"}'
+            data-parallax-to='{"y":"-75px"}'
+            >
+            <div
+                class="lqd-imggrp-single block pos-rel rounded-inherit"
+                data-shadow-style="4"
+            >
+                <div
+                class="lqd-imggrp-img-container inline-flex pos-rel items-center justify-center rounded-inherit"
+                >
+                <figure class="w-full pos-rel">
+                    <img
+                    class="rounded-inherit"
+                    width="592"
+                    height="674"
+                    src="{% static 'kg/assets/images/demo/company/about/kerc_office_02.png' %}"
+                    alt="has accordion"
+                    />
+                </figure>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+</section>
+{% endif %}
+<!-- End Has Accordion -->

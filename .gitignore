@@ -1,0 +1,51 @@
+node_modules
+
+# Django #
+*.log
+*.pot
+*.pyc
+*db.sqlite3
+__pycache__
+statics
+
+
+# Backup files # 
+*.bak 
+
+.idea/
+
+*.iws
+
+out/
+
+*.py[cod] 
+*$py.class 
+
+# Distribution / packaging 
+.Python build/ 
+develop-eggs/ 
+dist/ 
+downloads/ 
+eggs/ 
+.eggs/ 
+lib/ 
+lib64/ 
+parts/ 
+sdist/ 
+var/ 
+wheels/ 
+*.whl
+*.egg-info/ 
+.installed.cfg 
+*.egg 
+*.manifest 
+*.spec 
+
+
+# Environments 
+.env 
+.venv 
+
+
+# Visual Studio Code # 
+.vscode

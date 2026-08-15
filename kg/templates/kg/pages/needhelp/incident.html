@@ -1,0 +1,120 @@
+{% extends "kg/components/base-2.html" %} {% load static %} {% block page-title-content %}
+How to Report an Accident {% endblock %} {% block service-titlebar %}
+
+<div class="titlebar-col col-12 col-lg-8 col-xl-6 px-15">
+  <h1>How to report an accident</h1>
+  <a
+    class="titlebar-scroll-link"
+    href="#lqd-site-content"
+    data-localscroll="true"
+  >
+    <i class="lqd-icn-ess icon-ion-ios-arrow-down"></i>
+  </a>
+</div>
+
+{% endblock %} {% block content %}
+<section class="lqd-section services-content">
+  <div class="container">
+    <div class="row">
+      <!-- Side Bar -->
+      {% include "kg/pages/needhelp/sections/incident-category.html" %}
+      <div
+        class="w-70percent flex flex-col py-50 pr-10 pl-50 module-last lg:w-full lg:order-first"
+      >
+        
+
+        <!-- Cases -->
+        {% if page_content.cases_of_electrical_accident_or_emergency %}
+        <div class="w-full relative" id="defination">
+          <h3 class="ld-fh-element relative mb-1em text-24">
+            {{ page_content.cases_of_electrical_accident_or_emergency.title }}:
+          </h3>
+          <div class="w-full relative">
+            {% for content in page_content.cases_of_electrical_accident_or_emergency.content %}
+            <p class="ld-fh-element relative mb-1em" style="text-align: justify;">
+                {{ content|safe }}
+            </p>
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+        
+
+        <!-- How to Report -->
+        {% if page_content.how_to_report_an_electrical_accident_or_emergency %}
+        <div class="w-full relative" id="how-to-report">
+          <h3 class="ld-fh-element relative mb-1em text-24">
+            {{ page_content.how_to_report_an_electrical_accident_or_emergency.title }}:
+          </h3>
+          <div class="w-full relative">
+            {% for content in page_content.how_to_report_an_electrical_accident_or_emergency.content %}
+              <p class="ld-fh-element relative mb-1em " style="text-align: justify;">
+                  {{ content|safe }}
+              </p>
+              {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+        
+        <!-- When to Call -->
+        {% if page_content.when_must_you_call %}
+        <div class="w-full relative" id="when-to-call">
+          <h3 class="ld-fh-element relative mb-1em text-24">
+            {{ page_content.when_must_you_call.title }}:
+          </h3>
+          <div class="w-full relative">
+            {% for content in page_content.when_must_you_call.content %}
+              <div class="ld-fh-element relative mb-1em" style="text-align: justify;">
+                  {{ content|safe }}
+              </div>
+              {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+
+        <!-- Who to Call -->
+        {% if page_content.who_to_call_in_case_of_electrical_accident_or_emergency %}
+        <div class="w-full relative" id="who-to-call">
+          <h3 class="ld-fh-element relative mb-1em text-24">
+            {{ page_content.who_to_call_in_case_of_electrical_accident_or_emergency.title }}:
+          </h3>
+          <div class="w-full relative">
+            <table>
+              <thead>
+                <tr>
+                  <th>Company</th>
+                  <th>Who to call</th>
+                  <th>Telephone</th>
+                  <th>Email</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for content in page_content.who_to_call_in_case_of_electrical_accident_or_emergency.content_list %}
+                <tr>
+
+                  {% if content.content_objs %}
+                    {% for item in content.content_objs %}
+                      {% if item.type == 'list' %}
+                      {% for subitem in item.content %}
+                        <td>{{ subitem }}</td>
+                      {% endfor %}
+                      {% else %}
+                        <td>{{ item.title }}</td>
+                      {% endif %}
+                    {% endfor %}
+                  {% else %}
+                    <td>{{ content.title }}</td>
+                  {% endif %}
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

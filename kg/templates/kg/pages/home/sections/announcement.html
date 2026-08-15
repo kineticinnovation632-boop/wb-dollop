@@ -1,0 +1,195 @@
+{% load static %}
+
+{% if featured_posts %}
+
+<section class="lqd-section testimonials-services py-90">
+  <div class="container">
+    <div class="row">
+      <div class="col col-12 mb-40">
+        <div class="w-full flex flex-col items-center text-center">
+          <div
+            class="ld-fancy-heading relative mb-20 py-5 px-15 bg-primary rounded-100 lqd-unit-animation-done"
+          >
+            <h6
+              class="ld-fh-element inline-block relative m-0 text-12 tracking-1 uppercase text-secondary"
+            >
+              Featured Updates
+            </h6>
+          </div>
+          <div class="ld-fancy-heading lqd-unit-animation-done">
+            <h2 class="mb-0/35em ld-fh-element inline-block relative h2">
+              Announcement & Top News
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-center">
+      <div class="col col-12 ca-initvalues-applied lqd-animations-done" data-custom-animations="true" data-ca-options="{&quot;animationTarget&quot;: &quot;.carousel-container .carousel-item-inner&quot;, &quot;duration&quot; : 1000 , &quot;delay&quot; : 100 , &quot;ease&quot;: &quot;expo.out&quot;, &quot;initValues&quot;: {&quot;x&quot;: &quot;30px&quot;, &quot;opacity&quot; : 0} , &quot;animations&quot;: {&quot;x&quot;: &quot;0px&quot;, &quot;opacity&quot; : 1}}">
+        <div class="carousel-container carousel-dots-style4 carousel-dots-mobile-outside carousel-dots-mobile-center carousel-dots-appended" id="ld-testimonial-carousel">
+          <div class="carousel-items relative flickity-enabled is-draggable lqd-carousel-ready" data-lqd-flickity="{&quot;cellAlign&quot;: &quot;center&quot;, &quot;autoPlay&quot;: 5000, &quot;pauseAutoPlayOnHover&quot;: true, &quot;groupCells&quot;: true, &quot;wrapAround&quot;: true, &quot;pageDots&quot;: true, &quot;prevNextButtons&quot;: false, &quot;dotsIndicator&quot;: &quot;dots&quot;, &quot;dotsAppendTo&quot;: &quot;self&quot;}" tabindex="0">
+            <div class="flickity-viewport pos-rel w-100 h-100 overflow-hidden is-pointer-down" style="height: 309.938px; touch-action: pan-y;">
+              <!-- The Sliders -->
+              <div class="flickity-slider d-flex w-100 h-100 pos-rel" style="transform: translateX(-241.66%); will-change: auto;">
+                
+              {% for post in featured_posts %}
+                {% if post.embedded_url %}  
+                  <!-- Slide 1 -->
+                  <div class="col col-xl-12 col-md-12 col-12 carousel-item flex flex-col justify-center has-one-child" style="position: absolute; left: 0px; transform: translateX(800%);" aria-hidden="true">
+                    <div class="carousel-item-inner relative w-full lqd-unit-animation-done">
+                      <div class="carousel-item-content relative w-full">
+                        <div class="row">
+                          <div class="w-full relative">
+                            <iframe 
+                              title="{{ post.title }}"
+                              src="{{ post.embedded_url }}"
+                              allowFullScreen="true"
+                              width="1500"
+                              height="550"
+                              style="border: 0"
+                              loading="lazy"
+                            >
+                            </iframe>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>       
+                {% else %}
+                <!-- Slide 2 -->
+                  <div class="col col-xl-12 col-md-12 col-12 carousel-item flex flex-col justify-center has-one-child" style="position: absolute; left: 0px; transform: translateX(800%);" aria-hidden="true">
+                    <div class="carousel-item-inner relative w-full lqd-unit-animation-done">
+                      <div class="carousel-item-content relative w-full">
+                        <div class="w-full flex flex-row sm:flex-col">
+                          <div
+                            class="w-45percent min-h-400 relative flex flex-col overflow-hidden items-center justify-end pt-320 pb-20 px-20 rounded-12 shadow-md mr-20 sm:w-full sm:mr-0 module-img module-first-col animation-element ca-initvalues-applied lqd-unit-animation-done lqd-animations-done"
+                            data-custom-animations="true"
+                            data-ca-options='{"animationTarget": "img, .btn" ,  "duration" : 1000, "startDelay" : 1000, "ease": "expo.out" ,  "initValues": {"y": "100px"} , "animations": {"y": "0px"}}'
+                          >
+                            <div
+                              class="absolute top-0 z-0 ltr-left-0"
+                              data-parallax="true"
+                              data-parallax-options='{"ease": "linear", "start": "top bottom" ,  "end": "bottom+=0px top"}'
+                              data-parallax-from='{"y": "-50px" ,  "scaleX" : 1.2, "scaleY" : 1.2}'
+                              data-parallax-to='{"y": "50px" ,  "scaleX" : 1.1, "scaleY" : 1.1}'
+                              style="
+                                transform: translate3d(0px, -46.3951px, 0px) scale(1.1964, 1.1964);
+                                will-change: transform;
+                              "
+                            >
+                              <div class="lqd-imggrp-single block relative">
+                                <div
+                                  class="lqd-imggrp-img-container inline-flex relative items-center justify-center"
+                                >
+                                  <figure class="w-full relative">
+                                    {% if post.img %}
+                                      <img
+                                        class="h-400 object-cover lqd-unit-animation-done"
+                                        width="860"
+                                        height="800"
+                                        src="{{ post.img }}"
+                                        alt="{{ post.title }}"
+                                      />
+                                      {% else %}
+                                        <img
+                                          class="h-400 object-cover lqd-unit-animation-done"
+                                          width="860"
+                                          height="800"
+                                          src="{% static 'kg/assets/images/demo/company/alt_image.png' %}"
+                                          alt="Default Image"
+                                        />
+                                    {% endif %}
+                                  </figure>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="w-55percent relative flex flex-wrap flex-col items-start justify-start bg-white rounded-12 shadow-md transition-all ml-20 py-40 px-50 sm:w-full sm:m-0 module-content-col animation-element ca-initvalues-applied lqd-unit-animation-done lqd-animations-done"
+                            data-custom-animations="true"
+                            data-ca-options='{"animationTarget": ".ld-fancy-heading, .btn" ,  "duration" : 650, "startDelay" : 1500, "delay" : 100, "ease": "expo.out" ,  "initValues": {"y": "70px" ,  "opacity" : 0} , "animations": {"y": "0px" ,  "opacity" : 1}}'
+                            style=""
+                          >
+                            <div
+                              class="ld-fancy-heading relative py-5 px-15 bg-transparent rounded-100 lqd-unit-animation-done"
+                              style="
+                                background-image: linear-gradient(
+                                  90deg,
+                                  #a00f3f 0%,
+                                  var(--lqd-color-secondary) 100%
+                                );
+                              "
+                            >
+                              <h6
+                                class="ld-fh-element inline-block relative m-0 text-white text-12 tracking-1 uppercase"
+                              >
+                                {{ post.news_category }}
+                              </h6>
+                            </div>
+                            <div class="spacer w-full"><div class="w-full h-20"></div></div>
+                            <div class="ld-fancy-heading relative lqd-unit-animation-done" style="">
+                              <h2 class="mb-0/35em ld-fh-element inline-block relative h1">
+                                {{ post.sub_title }}
+                              </h2>
+                            </div>
+                            <div
+                              class="mb-20 ld-fancy-heading relative lqd-unit-animation-done"
+                              style=""
+                            >
+                              <p class="ld-fh-element mb-0/5em inline-block relative">
+
+                                
+                                {% if post.content and post.content|length > 0 %}
+                                {% for content_item in post.content %}
+                                {% if forloop.first %}
+                                  {{ content_item|truncatewords:20|safe }}
+                                {% endif %}
+                                
+                                {% endfor %}
+                                {% endif %}
+                                
+                              </p>
+                              
+                            </div>
+                            <a
+                              href="{% url 'kg:blog' post.slug %}"
+                              class="text-black btn text-15 font-medium whitespace-nowrap btn-naked btn-icon-right btn-hover-swp btn-has-label lqd-unit-animation-done"
+                              data-localscroll="true"
+                              
+                              ><span class="btn-txt" data-text="Continue reading"
+                                >Continue reading</span
+                              >
+                              <span class="btn-icon"
+                                ><i
+                                  aria-hidden="true"
+                                  class="lqd-icn-ess icon-ion-ios-arrow-forward"
+                                ></i> </span
+                              ><span class="btn-icon"
+                                ><i
+                                  aria-hidden="true"
+                                  class="lqd-icn-ess icon-ion-ios-arrow-forward"
+                                ></i></span
+                            ></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                {% endif %}
+              {% endfor %}
+                
+              </div>
+              <!-- The Sliders ends here -->
+            </div>
+          </div>
+          
+          <div class="carousel-dots-mobile carousel-dots-style4 ld-testimonial-carousel carousel-dots-mobile-outside carousel-dots-mobile-center">
+            <ol class="flickity-page-dots"></ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endif %}

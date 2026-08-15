@@ -1,0 +1,162 @@
+{% load static %}
+
+
+<section class="lqd-section what-we-do my-50" id="what-we-do">
+  <div class="container">
+    <div class="row items-center">
+      <div class="col col-12 col-xl-6 p-0">
+        <div
+          class="w-full flex flex-wrap content-center items-center relative p-10"
+        >
+          <div class="w-auto relative">
+            <div class="lqd-imggrp-single block relative" data-shadow-style="4">
+              <div
+                class="lqd-imggrp-img-container inline-flex relative items-center justify-center w-50percent"
+              >
+                <figure class="w-full relative">
+                  <img
+                    class="rounded-6"
+                    width="492"
+                    height="596"
+                    src="{% static 'kg/assets/images/demo/company/blog/smiles_02.png' %}"
+                    alt="Satisfactory"
+                  />
+                </figure>
+              </div>
+            </div>
+          </div>
+          <div class="w-auto relative">
+            <div class="-mt-40percent -mr-40percent mb-0 ml-35percent">
+              <div
+                class="lqd-imggrp-single block relative"
+                data-shadow-style="4"
+              >
+                <div
+                  class="lqd-imggrp-img-container inline-flex relative items-center justify-center w-55percent"
+                >
+                  <figure class="w-full relative">
+                    <img
+                      class="rounded-6"
+                      width="666"
+                      height="808"
+                      src="{% static 'kg/assets/images/demo/company/blog/kerc_office_02.png' %}"
+                      alt="kerc_office"
+                    />
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col col-12 col-xl-6 p-0"
+        data-custom-animations="true"
+        data-ca-options='{"animationTarget": ".animation-element", "duration" : 1800 , "delay" : 180 , "ease": "power4.out", "initValues": {"y": "35px", "opacity" : 0} , "animations": {"y": "0px", "opacity" : 1}}'
+      >
+        <div
+          class="w-full flex flex-col items-start pr-5percent pl-30percent module-content"
+        >
+          <div class="ld-fancy-heading relative animation-element">
+            <h2
+              class="ld-fh-element mb-0/5em inline-block relative lqd-highlight-classic lqd-highlight-grow-left"
+            >
+              {% if page_contents and page_contents.kerc_as_an_independent_regulator %}
+              {{ page_contents.kerc_as_an_independent_regulator.title|safe }}
+              {% else %}
+              KERC as an Independent Regulator.
+              {% endif %}
+            </h2>
+          </div>
+          <div class="ld-fancy-heading pb-0/5em relative animation-element">
+            <p
+              class="ld-fh-element mb-1/25em inline-block relative lqd-highlight-classic lqd-highlight-grow-left"
+              style="text-align: justify;">
+              
+              {% if page_contents and page_contents.kerc_as_an_independent_regulator %}
+              {% for pg_content in page_contents.kerc_as_an_independent_regulator.content %}
+              {{ pg_content|safe}}
+              {% endfor %}
+              {% else %}
+              Our mandate is to establish a stable legal, commercial and
+              technical regulatory framework for the provision of electricity to
+              residents of the State by market participants that are licensed to
+              operate in the Kogi State Electricity Market for the benefit of
+              residents of the State.
+              {% endif %}
+            </p>
+          </div>
+          {% if page_contents.kerc_as_an_independent_regulator.content_list %}
+          {% for ls_content in page_contents.kerc_as_an_independent_regulator.content_list %}
+          <div
+            class="mb-20 iconbox flex flex-grow-1 relative items-center iconbox-side animation-element"
+          >
+            <div class="iconbox-icon-wrap">
+              <div
+                class="iconbox-icon-container inline-flex text-18 text-green-700"
+              >
+                <i
+                  aria-hidden="true"
+                  class="text-secondary lqd-icn-ess icon-ion-ios-checkmark"
+                ></i>
+              </div>
+            </div>
+            <h3 class="lqd-iconbox-heading text-16 font-bold m-0">
+              {{ ls_content.title|safe }}
+            </h3>
+          </div>
+          {% endfor %}
+          {% else %}
+          <div
+            class="mb-20 iconbox flex flex-grow-1 relative items-center iconbox-side animation-element"
+          >
+            <div class="iconbox-icon-wrap">
+              <div
+                class="iconbox-icon-container inline-flex text-18 text-green-700"
+              >
+                <i
+                  aria-hidden="true"
+                  class="text-secondary lqd-icn-ess icon-ion-ios-checkmark"
+                ></i>
+              </div>
+            </div>
+            <h3 class="lqd-iconbox-heading text-16 font-bold m-0">
+              Legal, Licensing and Compliance
+            </h3>
+          </div>
+          <div
+            class="mb-40 iconbox flex flex-grow-1 relative items-center iconbox-side animation-element"
+          >
+            <div class="iconbox-icon-wrap">
+              <div
+                class="iconbox-icon-container inline-flex text-18 text-green-700"
+              >
+                <i
+                  aria-hidden="true"
+                  class="text-secondary lqd-icn-ess icon-ion-ios-checkmark"
+                ></i>
+              </div>
+            </div>
+            <h3 class="lqd-iconbox-heading text-16 font-bold m-0">
+              Market Competition and Rates
+            </h3>
+          </div>
+          {% endif %}
+          <a
+            href="{% url 'kg:about-us' %}"
+            class="btn btn-solid btn-md font-bold btn-icon-right btn-hover-reveal text-16 text-secondary bg-primary rounded-4 hover:bg-secondary hover:text-white animation-element"
+          >
+            <span class="btn-txt" data-text="Learn more">Learn more</span>
+            <span class="btn-icon text-1/15em">
+              <i
+                aria-hidden="true"
+                class="lqd-icn-ess icon-md-arrow-round-forward"
+              ></i>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End What We Do -->

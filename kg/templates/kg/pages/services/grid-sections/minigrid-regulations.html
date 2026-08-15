@@ -1,0 +1,30 @@
+{% load static %}
+
+
+{% if page_content and page_content.mini_grid_regulation %}
+<div class="w-full relative" id="mini-grid-regulation">
+  <h3 class="ld-fh-element relative mb-1em text-24">
+          {{ page_content.mini_grid_regulation.title }}
+      </h3>
+      {% for pg_content in page_content.mini_grid_regulation.content %}
+          <div class="w-full relative">
+            <p class="ld-fh-element relative mb-1em">
+              {{ pg_content|safe }}
+            </p>
+          </div>
+      {% endfor %}  
+</div>
+{% endif %}
+
+
+      <!-- <h3 class="ld-fh-element relative mb-1em text-24">
+          Mini-grid Regulations
+      </h3>
+      <div class="w-full relative">
+        <p class="ld-fh-element relative mb-1em">
+          The mini-grid regulations are designed to provide a framework for the development, 
+          operation, and management of mini-grids in the country. These regulations aim to ensure 
+          that mini-grids are developed in a sustainable and efficient manner, while also promoting 
+          access to electricity for underserved communities.
+        </p>
+      </div> -->

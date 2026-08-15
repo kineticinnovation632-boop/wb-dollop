@@ -1,0 +1,47 @@
+{% load static %}
+
+{% if page_content and page_content.captive_generation_permit %}
+<div class="w-full relative" id="captive-generation-permit">
+          <br />
+          <h3 class="ld-fh-element relative mb-1em text-24">
+            Captive Generation Permit
+          </h3>
+          <div class="generation-permit">
+            <table>
+              <thead>
+                <tr>
+                  <td>S/N</td>
+                  <td>Application</td>
+                  <td>Regulatory Instrument & Requirements</td>
+                  <td>Fee</td>
+                  <td>Timeline</td>
+                </tr>
+              </thead>
+              <tbody>
+                
+                {% for permit in page_content.captive_generation_permit.content_list %}
+                    <tr>
+                      <td>{{ forloop.counter }}</td>
+                      <td>{{ permit.title }}</td>
+                      <td>
+                        <a
+                          href="{{ permit.url }}"
+                          class="btn btn-naked leading-16"
+                        >
+                          <span
+                            class="btn-txt"
+                            data-text="Click here to download {{ permit.title }}"
+                            >Click here to download {{ permit.title }}</span
+                          >
+                        </a>
+                      </td>
+                      <td>{{ permit.content }}</td>
+                      <td>{{ permit.timeline|default:"6 Months" }}</td>
+                    </tr>
+                {% endfor %}
+              
+              </tbody>
+            </table>
+          </div>
+        </div>
+        {% endif %}

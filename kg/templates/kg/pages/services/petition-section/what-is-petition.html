@@ -1,0 +1,17 @@
+{% load static %}
+
+
+{% if page_content and page_content.petition %}
+<div class="w-full relative" id="petition">
+        <h3 class="ld-fh-element relative mb-1em text-24">
+            {{ page_content.petition.title }}
+          </h3>
+          <div class="w-full relative">
+            <p class="ld-fh-element relative mb-1em">
+              {% for pg_content in page_content.petition.content %}
+              {{ pg_content|safe}}
+              {% endfor %}
+            </p>
+          </div>
+        </div>
+{% endif %}

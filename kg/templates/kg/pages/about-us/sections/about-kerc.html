@@ -1,0 +1,150 @@
+{% load static %}
+
+<!-- Start Tab Items -->
+<section class="lqd-section tab-items">
+  <div class="container">
+    <div class="row">
+      <div class="col col-12 py-50 px-0">
+        <div
+          class="lqd-tabs lqd-tabs-style-3 lqd-tabs-nav-iconbox lqd-tabs-nav-items-not-expanded lqd-nav-underline-"
+          data-tabs-options='{"trigger":"click"}'
+        >
+          <nav class="lqd-tabs-nav-wrap mb-2rem">
+            <ul
+              class="reset-ul lqd-tabs-nav flex items-center justify-center relative border-black-10 md:justify-between"
+              role="tablist"
+            >
+              <li
+                class="text-center"
+                data-controls="lqd-tab-item-1"
+                role="presentation"
+              >
+                <a
+                  class="block text-17 font-bold text-secondary active"
+                  href="#lqd-tab-item-1"
+                  aria-expanded="false"
+                  aria-controls="lqd-tab-item-1"
+                  role="tab"
+                  data-bs-toggle="tab"
+                >
+                  <span class="lqd-tabs-nav-icon d-block">
+                    <span class="lqd-tabs-nav-content d-block">
+                      <span class="d-block relative h3 mt-0 mb-0"
+                        >Our Mission</span
+                      >
+                    </span>
+                  </span>
+                  <span class="lqd-tabs-nav-progress">
+                    <span class="lqd-tabs-nav-progress-inner"></span>
+                  </span>
+                </a>
+              </li>
+              <li
+                class="text-center"
+                data-controls="lqd-tab-item-2"
+                role="presentation"
+              >
+                <a
+                  class="block text-17 font-bold text-secondary"
+                  href="#lqd-tab-item-2"
+                  aria-expanded="false"
+                  aria-controls="lqd-tab-item-2"
+                  role="tab"
+                  data-bs-toggle="tab"
+                >
+                  <span class="lqd-tabs-nav-icon d-block">
+                    <span class="lqd-tabs-nav-content d-block">
+                      <span class="d-block relative h3 mt-0 mb-0"
+                        >Our Role</span
+                      >
+                    </span>
+                  </span>
+                  <span class="lqd-tabs-nav-progress">
+                    <span class="lqd-tabs-nav-progress-inner"></span>
+                  </span>
+                </a>
+              </li>
+              <li
+                class="text-center"
+                data-controls="lqd-tab-item-3"
+                role="presentation"
+              >
+                <a
+                  class="block text-17 font-bold text-secondary"
+                  href="#lqd-tab-item-3"
+                  aria-expanded="false"
+                  aria-controls="lqd-tab-item-3"
+                  role="tab"
+                  data-bs-toggle="tab"
+                >
+                  <span class="lqd-tabs-nav-icon d-block">
+                    <span class="lqd-tabs-nav-content d-block">
+                      <span class="d-block relative h3 mt-0 mb-0"
+                        >Our Structure</span
+                      >
+                    </span>
+                  </span>
+                  <span class="lqd-tabs-nav-progress">
+                    <span class="lqd-tabs-nav-progress-inner"></span>
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <div class="lqd-tabs-content relative px-25percent">
+            <div
+              id="lqd-tab-item-1"
+              role="tabpanel"
+              class="lqd-tabs-pane fade active in"
+            >
+              <p style="text-align: center">
+                {% if page_content and page_content.our_mission %}
+                  {% for pg_content in page_content.our_mission.content %}
+                  {{ pg_content|safe}}
+                  {% endfor %}
+                {% else %}
+                To ensure the provision of reliable, affordable, and sustainable
+                electricity services to the people of Kogi State by fostering
+                transparency, promoting investment and enforcing regulations
+                that protects consumer rights while encouraging innovation and
+                efficiency in the electricity sector.
+                {% endif %}
+              </p>
+            </div>
+            <div id="lqd-tab-item-2" role="tabpanel" class="lqd-tabs-pane fade">
+              <p style="text-align: center">
+                {% if page_content and page_content.our_role %}
+                  {% for pg_content in page_content.our_role.content %}
+                  {{ pg_content|safe}}
+                  {% endfor %}
+                {% else %}
+                Established by LAW to undertake technical and economic
+                regulation of the Kogi Electricity Supply Industry. The
+                Commission is to, among others license operators, determine
+                operating codes and standards, establish customer rights and
+                obligations and set cost reflective industry tariffs.
+                {% endif %}
+              </p>
+            </div>
+            <div id="lqd-tab-item-3" role="tabpanel" class="lqd-tabs-pane fade">
+              <p style="text-align: center">
+                {% if page_content and page_content.our_structure %}
+                  {% for pg_content in page_content.our_structure.content %}
+                  {{ pg_content|safe}}
+                  {% endfor %}
+                {% else %}
+                The Electricity Act 2023, provides for the tenured appointment
+                of three (3) Commissioners, with one of them designated as
+                Chairman/Chief Executive Officer. The Commissioners are
+                nominated by the Governor and confirmed by the State National
+                Assembly.
+                {% endif %}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Tab Items -->

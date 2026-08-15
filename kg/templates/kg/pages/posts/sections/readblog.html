@@ -1,0 +1,157 @@
+{% load static %}
+
+
+
+{% if blog %}
+<section
+  class="lqd-section has-accordion-page pt-100 bg-gray-200"
+  style="margin-bottom: 3rem"
+>
+  <div class="container">
+    <div class="row">
+      <div class="col col-12 col-xl-6 p-0">
+        <div
+          class="w-full relative flex items-center pl-20percent rounded-8 z-1 module-col"
+          data-parallax="true"
+          data-parallax-options='{"ease":["linear"],"start":"top bottom","end":"bottom+=0px top"}'
+          data-parallax-from='{"y":"60px"}'
+          data-parallax-to='{"y":"-75px"}'
+        >
+          <div
+            class="lqd-imggrp-single block pos-rel rounded-inherit"
+            data-shadow-style="4"
+          >
+            <div
+              class="lqd-imggrp-img-container inline-flex pos-rel items-center justify-center rounded-inherit"
+            >
+              {% if blog.img %} 
+                {% if blog.youtube_video %}
+                <div
+                    class="lqd-imggrp-content lqd-imggrp-content-mid w-95 absolute-center"
+                >
+                    <div class="lqd-imggrp-content-inner">
+                    <a
+                        href="{{blog.youtube_video}}"
+                        class="btn btn-naked fresco btn-icon-block btn-icon-top btn-icon-xl btn-icon-circle btn-icon-bordered btn-icon-ripple text-white"
+                        ><span
+                        class="inline-flex items-center py-1/15em px-2/1em transition-all"
+                        ><span
+                            class="translate-0 text-white text-26 border-white btn-icon"
+                            ><i
+                            class="lqd-icn-ess icon-ion-ios-play"
+                            ></i></span></span
+                    ></a>
+                    </div>
+                </div>
+                {% endif %} 
+                <figure>
+                    <img
+                    width="720"
+                    height="510"
+                    src="{{blog.img}}"
+                    alt="{{blog.title}}"
+                    />
+                </figure>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col col-12 col-xl-6">
+        <h2 class="ld-fh-element relative mb-0/5em text-40">{{blog.title}}</h2>
+        {% if blog.content %} {% for section in blog.content %}
+        <p class="ld-fh-element relative mb-1" style="text-align: justify">
+          {{section}}
+        </p>
+        {% endfor %}{% endif %}
+
+        <p class="ld-fh-element relative mt-2/25em">
+          <strong>Published Date: </strong>{{blog.event_date}}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Show all images linked to this post -->
+
+{% if blog.images %}
+<section class="lqd-section has-accordion-page pt-100 bg-gray-200">
+    <div class="container">
+        <div class="row">
+            {% for img in blog.images %}
+            <div class="col col-12 col-xl-6 p-0">
+                <div
+                    class="w-full relative flex items-center pl-20percent rounded-8 z-1 module-col"
+                    data-parallax="true"
+                    data-parallax-options='{"ease":["linear"],"start":"top bottom","end":"bottom+=0px top"}'
+                    data-parallax-from='{"y":"60px"}'
+                    data-parallax-to='{"y":"-75px"}'
+                >
+                    <div
+                        class="lqd-imggrp-single block pos-rel rounded-inherit"
+                        data-shadow-style="4"
+                    >
+                        <div
+                            class="lqd-imggrp-img-container inline-flex pos-rel items-center justify-center rounded-inherit"
+                        >
+                            <figure>
+                                <img
+                                    width="720"
+                                    height="510"
+                                    src="{{img.image}}"
+                                    alt="{{blog.title}}"
+                                />
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+{% else %}
+<section class="lqd-section has-accordion-page pt-100 bg-gray-200">
+    <div class="container">
+        <div class="row">
+        <div class="col col-12 col-xl-6">
+            <h2 class="ld-fh-element relative mb-0/5em text-40">
+            No Blog Available
+            </h2>
+            <p>Sorry, we couldn't find the information you were looking for.</p>
+        </div>
+        <div class="col col-12 col-xl-6 p-0">
+            <div
+            class="w-full relative flex items-center pl-20percent rounded-8 z-1 module-col"
+            data-parallax="true"
+            data-parallax-options='{"ease":["linear"],"start":"top bottom","end":"bottom+=0px top"}'
+            data-parallax-from='{"y":"60px"}'
+            data-parallax-to='{"y":"-75px"}'
+            >
+            <div
+                class="lqd-imggrp-single block pos-rel rounded-inherit"
+                data-shadow-style="4"
+            >
+                <div
+                class="lqd-imggrp-img-container inline-flex pos-rel items-center justify-center rounded-inherit"
+                >
+                <figure class="w-full pos-rel">
+                    <img
+                    class="rounded-inherit"
+                    width="592"
+                    height="674"
+                    src="{% static 'kg/assets/images/demo/company/about/kerc_office_02.png' %}"
+                    alt="has accordion"
+                    />
+                </figure>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+</section>
+{% endif %}
+

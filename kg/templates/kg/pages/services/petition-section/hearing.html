@@ -1,0 +1,18 @@
+{% load static %}
+
+
+{% if page_content and page_content.hearing %}
+<div class="w-full relative" id="hearing">
+  <h3 class="ld-fh-element relative mb-1em text-24">
+          {{ page_content.hearing.title }}
+      </h3>
+      {% for pg_content in page_content.hearing.content %}
+          <div class="w-full relative">
+            <p class="ld-fh-element relative mb-1em">
+              {{ pg_content|safe }}
+            </p>
+          </div>
+      {% endfor %}  
+</div>
+{% endif %}
+

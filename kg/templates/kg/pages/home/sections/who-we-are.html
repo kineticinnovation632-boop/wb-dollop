@@ -1,0 +1,200 @@
+{% load static %}
+
+
+<!-- Start Contact -->
+<section class="lqd-section contact" id="contact">
+  <div class="container">
+    <div class="row items-center">
+      <div
+        class="col col-12 col-xl-5 pt-40 pb-35 text-start xl:text-center module-title"
+        data-custom-animations="true"
+        data-ca-options='{"animationTarget": ".animation-element", "duration" : 1800 , "delay" : 180 , "ease": "power4.out", "initValues": {"y": "60px", "opacity" : 0} , "animations": {"y": "0px", "opacity" : 1}}'
+      >
+        <div class="ld-fancy-heading relative animation-element">
+          <h6 class="ld-fh-element mb-1em inline-block relative">Who we are</h6>
+        </div>
+        <div class="ld-fancy-heading relative animation-element">
+          <h2 class="ld-fh-element mb-0/5em inline-block relative">
+            {% if page_contents and page_contents.independent_regulatory_authority %}
+            {{ page_contents.independent_regulatory_authority.title|safe }}
+            {% else %}
+            Independent Regulatory Authority.
+            {% endif %}
+          </h2>
+        </div>
+        <div class="ld-fancy-heading relative animation-element">
+          <p class="ld-fh-element mb-0/5em inline-block relative">
+            {% if page_contents and page_contents.independent_regulatory_authority %}
+            {% for pg_content in page_contents.independent_regulatory_authority.content %}
+            {{ pg_content|safe}}
+            {% endfor %}
+            {% else %}
+            The Kogi State Electricity Regulatory Commission (KERC) is an
+            independent regulatory authority that is charged with the mandate
+            for the regulation of electricity operations in Kogi State. The
+            Commission was established under the Kogi State Electricity Law of
+            2023, and has the responsibility for developing a commercially
+            viable, sustainable and reliable electricity market that serves all
+            the residents of Kogi State.
+            {% endif %}
+          </p>
+        </div>
+      </div>
+      <!-- how may we be of help -->
+      <div class="col col-12 col-xl-6 offset-xl-1 p-0">
+        <div id="contact-form" class="relative w-full module-form">
+          <div
+            class="form-mini relative -mt-80 rounded-6 bg-white shadow-md pt-30 pl-50 pb-50 pr-50 transition-all"
+            data-custom-animations="true"
+            data-ca-options='{"animationTarget": ".animation-element", "duration" : 1800 , "delay" : 180 , "ease": "power4.out", "initValues": {"y": "35px", "opacity" : 0} , "animations": {"y": "0px", "opacity" : 1}}'
+          >
+            <div class="ld-fancy-heading relative animation-element">
+              <h6 class="ld-fh-element mb-1em inline-block relative mb-1em">
+                send a message
+              </h6>
+            </div>
+            <div class="ld-fancy-heading relative animation-element">
+              <h2 class="ld-fh-element mb-1/15em text-30 inline-block relative">
+                How may we be of help
+              </h2>
+            </div>
+            <div
+              class="mb-0 lqd-contact-form lqd-contact-form-inputs-filled lqd-contact-form-button-block lqd-contact-form-button-lg lqd-contact-form-button-round lqd-contact-form-inputs-lg animation-element"
+            >
+              <div role="form" id="mini-form-help" lang="en-US">
+                <div class="screen-reader-response">
+                  <p role="status" aria-live="polite" aria-atomic="true"></p>
+                </div>
+                {% if messages %} {% for message in messages %}
+                <!-- Success -->
+                {% if message.tags == 'success' %}
+                <div
+                  class="alert alert-success alert-dismissible fade show mb-0"
+                  role="alert"
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                  "
+                >
+                  <span class="alert-inner--icon me-2" style="color: green"
+                    ><i class="fe fe-check"></i
+                  ></span>
+                  <span
+                    class="alert-inner--text"
+                    style="color: green; font-size: 1rem"
+                    ><strong>Success!</strong> {{ message }}</span
+                  >
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="alert"
+                    aria-label="Close"
+                    style="outline: none; border: none; background: none"
+                  >
+                    <span aria-hidden="true">×</span>
+                  </button>
+                </div>
+                {% elif message.tags == 'error' %}
+                <div
+                  class="alert alert-danger alert-dismissible fade show mb-0"
+                  role="alert"
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                  "
+                >
+                  <span class="alert-inner--icon me-2" style="color: red"
+                    ><i class="fe fe-slash"></i
+                  ></span>
+                  <span
+                    class="alert-inner--text"
+                    style="color: red; font-size: 1rem"
+                    ><strong>Oh Snap!</strong> {{ message }}</span
+                  >
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="alert"
+                    aria-label="Close"
+                    style="outline: none; border: none; background: none"
+                  >
+                    <span aria-hidden="true">×</span>
+                  </button>
+                </div>
+                {% endif %} {% endfor %}{% endif %}
+                <form
+                  method="post"
+                  action="{% url 'kg:home' %}#contact-form"
+                  novalidate="novalidate"
+                >
+                <input type="hidden" name="subject" value="Contact Form Submission from Home Page">
+                  {% csrf_token %}
+                  <div class="row">
+                    <div class="col col-12 py-0">
+                      <span class="mb-0 lqd-form-control-wrap relative">
+                        <input
+                          class="text-black px-2em text-14 font-normal bg-yellow-100"
+                          type="text"
+                          name="name"
+                          value=""
+                          size="40"
+                          aria-required="true"
+                          aria-invalid="false"
+                          placeholder="Your name"
+                          id="sender_name"
+                        />
+                        <i class="lqd-icn-ess icon-lqd-user"></i>
+                      </span>
+                    </div>
+                    <div class="col col-12 py-0">
+                      <span class="mb-0 lqd-form-control-wrap relative">
+                        <input
+                          class="text-black px-2em text-14 font-normal bg-yellow-100"
+                          type="email"
+                          name="email"
+                          value=""
+                          size="40"
+                          aria-required="true"
+                          aria-invalid="false"
+                          placeholder="Email Address"
+                          id="email_address"
+                        />
+                        <i class="lqd-icn-ess icon-lqd-envelope"></i>
+                      </span>
+                    </div>
+                    <div class="col col-12 py-0 px-15">
+                      <span class="lqd-form-control-wrap" data-name="textarea">
+                        <textarea
+                          name="message"
+                          cols="10"
+                          rows="4"
+                          class="lqd-cf-form-control px-2em text-14 font-normal bg-yellow-100 text-slate-700"
+                          aria-required="true"
+                          aria-invalid="false"
+                          placeholder="Let us know how we can help you"
+                          id="message"
+                        ></textarea>
+                      </span>
+                    </div>
+                    <div class="col col-12 py-0">
+                      <input
+                        id="sbm"
+                        type="submit"
+                        value="Submit"
+                        class="mb-0 font-bold text-secondary bg-primary has-spinner text-16 hover:bg-secondary hover:text-white"
+                      />
+                    </div>
+                  </div>
+                </form>
+                <!-- <div class="lqd-cf-response-output"></div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Contact -->

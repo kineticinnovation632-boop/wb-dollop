@@ -1,0 +1,46 @@
+{% load static %}
+
+{% if page_content and page_content.clearance_certificate_for_the_importation_of_generating_set %}
+<div class="w-full relative" id="clearance-certificate">
+          <br />
+          <h3 class="ld-fh-element relative mb-1em text-24">
+            Clearance Certificate for the Importation of Generating Set
+          </h3>
+          <div class="clearance-certificate">
+            <table>
+              <thead>
+                <tr>
+                  <td>S/N</td>
+                  <td>Application</td>
+                  <td>Regulatory Instrument & Requirements</td>
+                  <td>Fee</td>
+                  <td>Timeline</td>
+                </tr>
+              </thead>
+              <tbody>
+                {% for certificate in page_content.clearance_certificate_for_the_importation_of_generating_set.content_list %}
+                    <tr>
+                      <td>{{ forloop.counter }}</td>
+                      <td>{{ certificate.title }}</td>
+                      <td>
+                        <a
+                          href="{{ certificate.url }}"
+                          class="btn btn-naked leading-16"
+                        >
+                          <span
+                            class="btn-txt"
+                            data-text="Click here to download {{ certificate.title }}"
+                            >Click here to download {{ certificate.title }}</span
+                          >
+                        </a>
+                      </td>
+                      <td>{{ certificate.content }}</td>
+                      <td>{{ certificate.timeline|default:"6 Months" }}</td>
+                    </tr>
+                {% endfor %}
+                
+              </tbody>
+            </table>
+          </div>
+        </div>
+        {% endif %}

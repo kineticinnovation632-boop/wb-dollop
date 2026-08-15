@@ -1,0 +1,29 @@
+{% load static %}
+
+<!-- Start Image Gallary -->
+<section class="lqd-section py-100">
+  <div class="container">
+    <div class="row">
+      {% if blog and blog.img %} {% for img in blog.img %}
+      <div class="col col-12 col-md-6 col-xl-4 p-0">
+        <div
+          class="lqd-imggrp-single block pos-rel rounded-8"
+          data-shadow-style="4"
+        >
+          <div
+            class="lqd-imggrp-img-container inline-flex pos-rel items-center justify-center rounded-inherit"
+          >
+            <img
+              width="720"
+              height="510"
+              src="{{img}}"
+              alt="{{blog.title}}"
+            />
+          </div>
+        </div>
+      </div>
+      {% endfor %} {% endif %}
+    </div>
+  </div>
+</section>
+<!-- End Image Gallary -->

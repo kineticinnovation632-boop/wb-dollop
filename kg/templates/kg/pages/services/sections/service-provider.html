@@ -1,0 +1,51 @@
+{% load static %}
+
+
+{% if page_content and page_content.meter_service_provider %}
+<div
+    class="w-full relative"
+    id="meter-service-provider"
+    style="margin-top: 1rem; margin-bottom: 1rem"
+>
+    <h3 class="ld-fh-element relative mb-1em text-24">
+    Meter Service Provider
+    </h3>
+    <div class="service-provider">
+    <table>
+        <thead>
+        <tr>
+            <td>S/N</td>
+            <td>Application</td>
+            <td>Regulatory Instrument & Requirements</td>
+            <td>Fee</td>
+            <td>Timeline</td>
+        </tr>
+        </thead>
+        <tbody>
+        
+        {% for provider in page_content.meter_service_provider.content_list %}
+            <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ provider.title }}</td>
+            <td>
+                <a
+                href="{{ provider.url }}"
+                class="btn btn-naked leading-16"
+                >
+                <span
+                    class="btn-txt"
+                    data-text="Click here to download {{ provider.title }}"
+                    >Click here to download {{ provider.title }}</span
+                >
+                </a>
+            </td>
+            <td>{{ provider.content }}</td>
+            <td>{{ provider.timeline|default:"6 Months" }}</td>
+            </tr>
+        {% endfor %}
+        
+        </tbody>
+    </table>
+</div>
+</div>
+{% endif %}

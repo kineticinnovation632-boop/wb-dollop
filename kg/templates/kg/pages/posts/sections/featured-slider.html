@@ -1,0 +1,84 @@
+{% load static %}
+
+{% if featured_posts %}
+
+<section class="lqd-section testimonials-services py-50">
+  <div class="container">
+    <div class="w-45percent flex flex-col justify-center text-left mb-25 md:w-full">
+            <div class="ld-fancy-heading relative animation-element lqd-unit-animation-done">
+                <h2 class="ld-fh-element mb-0/2em inline-block relative">Featured Updates</h2>
+            </div>
+            <div class="ld-fancy-heading relative animation-element lqd-unit-animation-done" >
+                <p class="ld-fh-element mb-0/5em inline-block relative">Announcement & Top News</p>
+            </div>
+        </div>
+    <div class="row justify-center">
+      <div class="col col-12 ca-initvalues-applied lqd-animations-done" data-custom-animations="true" data-ca-options="{&quot;animationTarget&quot;: &quot;.carousel-container .carousel-item-inner&quot;, &quot;duration&quot; : 1000 , &quot;delay&quot; : 100 , &quot;ease&quot;: &quot;expo.out&quot;, &quot;initValues&quot;: {&quot;x&quot;: &quot;30px&quot;, &quot;opacity&quot; : 0} , &quot;animations&quot;: {&quot;x&quot;: &quot;0px&quot;, &quot;opacity&quot; : 1}}">
+        <div class="carousel-container carousel-dots-style4 carousel-dots-mobile-outside carousel-dots-mobile-center carousel-dots-appended" id="ld-testimonial-carousel">
+          <div class="carousel-items relative flickity-enabled is-draggable lqd-carousel-ready" data-lqd-flickity="{&quot;cellAlign&quot;: &quot;center&quot;, &quot;autoPlay&quot;: 5000, &quot;pauseAutoPlayOnHover&quot;: true, &quot;groupCells&quot;: true, &quot;wrapAround&quot;: true, &quot;pageDots&quot;: true, &quot;prevNextButtons&quot;: false, &quot;dotsIndicator&quot;: &quot;dots&quot;, &quot;dotsAppendTo&quot;: &quot;self&quot;}" tabindex="0">
+            <div class="flickity-viewport pos-rel w-100 h-100 overflow-hidden is-pointer-down" style="height: 309.938px; touch-action: pan-y;">
+              <!-- The Sliders -->
+              <div class="flickity-slider d-flex w-100 h-100 pos-rel" style="transform: translateX(-241.66%); will-change: auto;">
+                
+              {% for post in featured_posts %}
+                {% if post.post_type == 'NEWS' %}  
+                <!-- Slide 2 -->
+                  <div class="col col-xl-12 col-md-12 col-12 carousel-item flex flex-col justify-center has-one-child" style="position: absolute; left: 0px; transform: translateX(800%);" aria-hidden="true">
+                    <div class="carousel-item-inner relative w-full lqd-unit-animation-done" >
+                      <div class="carousel-item-content relative w-full">
+                        <div class="row">
+                            <div class="w-full relative">
+                                <div class="lqd-fb pos-rel lqd-fb-style-1 lqd-fb-style-1-3 lqd-fb-content-overlay lqd-fb-zoom-img-onhover border-radius-4 overflow-hidden h-pt-60 mb-65 is-in-view" data-inview="true">
+                                <div class="lqd-fb-inner lqd-overlay">
+                                    <div class="lqd-fb-img lqd-overlay overflow-hidden">
+                                    <figure class="w-full h-full">
+                                        <img class="w-full h-full objfit-cover objpos-center" src="{{ post.img }}" alt="{{ post.sub_title }}" width="1200" height="800" style="object-fit: cover; object-position: center;" />
+                                    </figure>
+                                    </div>
+                                    <div class="lqd-fb-content lqd-overlay d-flex items-end">
+                                    <div class="lqd-fb-bg lqd-overlay bg-transparent" style="background-image: linear-gradient(180deg, #181B3100 0%, #181B31 100%);"></div>
+                                    <div class="lqd-fb-hover-overlay lqd-overlay"></div>
+                                    <div class="lqd-fb-content-inner d-flex flex-col justify-between relative h-full w-full p-1/5rem">
+                                        <div class="lqd-fb-content-top">
+                                          <h6 class="mt-0 mb-0">{{post.news_category}}</h6>
+                                        </div>
+                                        
+                                        <div class="lqd-fb-content-bottom">
+                                          <h2 class="lqd-fb__title mt-0 mb-2 font-semibold">{{post.title}}</h2>
+                                        {% if post.content %}
+                                            {% for paragraph in post.content %}
+                                                {% if forloop.first %}
+                                                <p class="mt-0 mb-10">{{paragraph|truncatewords:30|safe}}</p>
+                                                {% endif %}
+                                            {% endfor %}                                            
+                                            <a class="bg-gray-100 text-black rounded-full px-20 py-10 text-12 font-semibold tracking-0/1em leading-0 lqd-unit-animation-done" href="{% url 'kg:blog' post.slug %}" >Continue Reading</a>
+                                            
+                                        </div>
+                                        {% endif %}
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                {% endif %}
+              {% endfor %}
+                
+              </div>
+              <!-- The Sliders ends here -->
+            </div>
+          </div>
+          
+          <div class="carousel-dots-mobile carousel-dots-style4 ld-testimonial-carousel carousel-dots-mobile-outside carousel-dots-mobile-center">
+            <ol class="flickity-page-dots"></ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endif %}

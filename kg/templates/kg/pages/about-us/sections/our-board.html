@@ -1,0 +1,175 @@
+{% load static %}
+
+{% if persons %}
+<section class="lqd-section team pt-100 pb-65">
+  <div class="container">
+    <div class="row">
+      <div class="col col-12">
+        <div
+          class="w-full flex flex-col items-center text-center px-15percent pb-10 sm:px-0"
+        >
+          <h2 class="ld-fh-element relative mb-0/5em">KERC BOARD</h2>
+          <p class="ld-fh-element relative mb-0/5em">
+            The Commission is led by the Chairman and three Commissioners who
+            holds the authority to make all regulatory decisions..
+          </p>
+        </div>
+        <div class="container-fluid">
+          {% if persons.chairman %}
+          <div class="row flex justify-center">
+            <div
+              class="col col-12 col-md-4 flex flex-col items-center text-center p-20 module-col ca-initvalues-applied lqd-animations-done"
+              data-custom-animations="true"
+              data-ca-options='{"addChildTimelines":false,"animationTarget":"img, h4, h6, p","duration":1200,"startDelay":200,"delay":100,"ease":["power4.out"],"initValues":{"y":"20px","opacity":0},"animations":{"y":"0px","opacity":1}}'
+            >
+              <img
+                class="mb-1em lqd-unit-animation-done"
+                width="660"
+                height="492"
+                src="{{ persons.chairman.photo}}"
+                alt="{{persons.chairman.title}}"
+              />
+              <h4
+                class="ld-fh-element relative mb-0/5em text-24 font-bold lqd-unit-animation-done"
+              >
+                {{ persons.chairman.name }}
+              </h4>
+              <div class="ld-fancy-heading p-5 mb-0/6em bg-accent rounded-6">
+                <h6
+                  class="ld-fh-element relative p-5 mb-0/5em text-10 uppercase font-normal leading-1em tracking-1 text-gray-400 lqd-unit-animation-done"
+                >
+                  <strong>{{ persons.chairman.office }}</strong>
+                </h6>
+              </div>
+              <p
+                class="ld-fh-element relative mb-0/5em text-15 leading-1/6em lqd-unit-animation-done"
+              >
+                {{ persons.chairman.intro|truncatechars:100 }}
+              </p>
+              <a
+                href="{% url 'kg:read-more' persons.chairman.slug %}"
+                class="btn button whitespace-nowrap btn-naked btn-icon-right btn-hover-reveal font-bold text-secondary text-15"
+                rel="nofollow"
+              >
+                <span class="btn-txt mr-5" data-text="Continue Reading"
+                  >Continue Reading</span
+                >
+                <span class="btn-icon text-1/15em">
+                  <i
+                    aria-hidden="true"
+                    class="lqd-icn-ess icon-md-arrow-round-forward-2"
+                  ></i>
+                </span>
+              </a>
+            </div>
+          </div>
+          {% endif %} {% if persons.commissioners %}
+          <div class="row">
+            {% for person in persons.commissioners %}
+            <div
+              class="col col-12 col-md-4 flex flex-col items-center text-center p-20 module-col ca-initvalues-applied lqd-animations-done"
+              data-custom-animations="true"
+              data-ca-options='{"addChildTimelines":false,"animationTarget":"img, h4, h6, p","duration":1200,"startDelay":200,"delay":100,"ease":["power4.out"],"initValues":{"y":"20px","opacity":0},"animations":{"y":"0px","opacity":1}}'
+            >
+              <img
+                class="mb-1em lqd-unit-animation-done"
+                width="660"
+                height="492"
+                src="{{person.photo}}"
+                alt="{{person.title}}"
+              />
+              <h4
+                class="ld-fh-element relative mb-0/5em text-24 font-bold lqd-unit-animation-done"
+              >
+                {{ person.name }}
+              </h4>
+              <div class="ld-fancy-heading p-5 mb-0/6em bg-accent rounded-6">
+                <h6
+                  class="ld-fh-element relative p-5 mb-0/5em text-10 uppercase font-normal leading-1em tracking-1 text-gray-400 lqd-unit-animation-done"
+                >
+                  <strong>{{ person.office }}</strong>
+                </h6>
+              </div>
+              <p
+                class="ld-fh-element relative mb-0/5em text-15 leading-1/6em lqd-unit-animation-done"
+              >
+                {{ person.intro|truncatechars:100 }}
+              </p>
+              <a
+                href="{% url 'kg:read-more' person.slug %}"
+                class="btn button whitespace-nowrap btn-naked btn-icon-right btn-hover-reveal font-bold text-secondary text-15"
+                rel="nofollow"
+              >
+                <span class="btn-txt mr-5" data-text="Continue Reading"
+                  >Continue Reading</span
+                >
+                <span class="btn-icon text-1/15em">
+                  <i
+                    aria-hidden="true"
+                    class="lqd-icn-ess icon-md-arrow-round-forward-2"
+                  ></i>
+                </span>
+              </a>
+            </div>
+
+            {% endfor %}
+          </div>
+          {% endif %} {% if persons.secretary %}
+          <div class="row flex justify-center">
+            <div
+              class="col col-12 col-md-4 flex flex-col items-center text-center p-20 module-col ca-initvalues-applied lqd-animations-done"
+              data-custom-animations="true"
+              data-ca-options='{"addChildTimelines":false,"animationTarget":"img, h4, h6, p","duration":1200,"startDelay":200,"delay":100,"ease":["power4.out"],"initValues":{"y":"20px","opacity":0},"animations":{"y":"0px","opacity":1}}'
+            >
+              <img
+                class="mb-1em lqd-unit-animation-done"
+                width="660"
+                height="492"
+                src="{{ persons.secretary.photo}}"
+                alt="{{persons.secretary.title}}"
+              />
+              <h4
+                class="ld-fh-element relative mb-0/5em text-24 font-bold lqd-unit-animation-done"
+              >
+                {{ persons.secretary.name }}
+              </h4>
+              <div class="ld-fancy-heading p-5 mb-0/6em bg-accent rounded-6">
+                <h6
+                  class="ld-fh-element relative p-5 mb-0/5em text-10 uppercase font-normal leading-1em tracking-1 text-gray-400 lqd-unit-animation-done"
+                >
+                  <strong>{{ persons.secretary.office }}</strong>
+                </h6>
+              </div>
+              <p
+                class="ld-fh-element relative mb-0/5em text-15 leading-1/6em lqd-unit-animation-done"
+              >
+                {{ persons.secretary.intro|truncatechars:100 }}
+              </p>
+              <a
+                href="{% url 'kg:read-more' persons.secretary.slug %}"
+                class="btn button whitespace-nowrap btn-naked btn-icon-right btn-hover-reveal font-bold text-secondary text-15"
+                rel="nofollow"
+              >
+                <span class="btn-txt mr-5" data-text="Continue Reading"
+                  >Continue Reading</span
+                >
+                <span class="btn-icon text-1/15em">
+                  <i
+                    aria-hidden="true"
+                    class="lqd-icn-ess icon-md-arrow-round-forward-2"
+                  ></i>
+                </span>
+              </a>
+            </div>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% else %}
+<section class="lqd-section team pt-100 pb-65"></section>
+{% endif %}
+

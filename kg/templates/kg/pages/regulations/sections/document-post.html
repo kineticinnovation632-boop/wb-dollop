@@ -1,0 +1,212 @@
+{% extends "kg/components/base.html" %} {% load static %} {% block page-title-content %} 
+{{regulation.title|default:"No Document Available"}} {% endblock %}
+{% block content %}
+<section
+  class="lqd-section testimonial py-150 bg-center bg-cover relative transition-all"
+  style="
+    background-image: url(&quot;{% static 'kg/assets/images/demo/company/alt_image.png' %}&quot;);
+  "
+>
+  <div
+    class="background-overlay transition-all bg-green-100 opacity-100"
+    style="
+      background-image: linear-gradient(
+        115deg,
+        #3d5374 48%,
+        rgba(242, 41, 91, 0) 82%
+      );
+    "
+  ></div>
+  <div class="container">
+    <div class="row">
+      <div
+        class="col col-12 col-xl-8 relative sm:p-0 ca-initvalues-applied lqd-animations-done"
+        data-custom-animations="true"
+        data-ca-options='{"animationTarget": ".animation-element", "duration" : 1800 , "delay" : 180 , "ease": "power4.out", "initValues": {"y": "35px", "opacity" : 0} , "animations": {"y": "0px", "opacity" : 1}}'
+      >
+        <h6
+          class="ld-fh-element relative py-15 px-10 mb0/5em bg-gray-100 rounded-100 text-12 font-semibold tracking-0/1em leading-0 lqd-unit-animation-done"
+        >
+          {% if regulation %} {{regulation.regulation_category|default:"N/A"}}{% endif %}
+        </h6>
+        <div
+          class="ld-fancy-heading relative animation-element lqd-unit-animation-done"
+        >
+          <h2
+            class="ld-fh-element mb-1em text-primary inline-block relative lqd-highlight-classic lqd-highlight-grow-left"
+          >
+            {% if regulation %} {{regulation.title|default:"No Document Available"}}{% endif %}
+          </h2>
+        </div>
+        <!-- Write up -->
+        {% if regulation and regulation.description %}
+        <div class="row relative w-full">
+          {% for content in regulation.description %}
+          
+          <p
+            class="ld-fh-element text-20 text-white relative mb-1"
+            style="text-align: justify"
+          >
+            {% if forloop.first %}{{ content|safe }}{% endif %}
+          </p>
+          {% endfor %}
+        </div>
+        {% else %}
+        <p>Sorry, we couldn't find the information you were looking for.</p>
+        {% endif %}
+        <!-- Section Footer -->
+      </div>
+    </div>
+    <div class="row absolute transparent bottom-0 w-full mt-1em">
+      <div class="col col-12 col-lg-6">
+        <div class="ld-fh-element text-14 relative">
+          <span class="text-white"
+            >Published on:
+            <strong class="text-white pl-5 pr-15"
+              >{% if regulation %} {{regulation.published_at|default:"N/A"}}{% endif %}</strong
+            >•</span
+          >
+          <span class="pl-10 text-white"
+            >Total Downloads:
+            <strong class="text-white pl-5 pr-15"
+              >{% if regulation %} {{regulation.downloads}}{% endif %}</strong
+            >•</span
+          >
+          <span class="pl-10 text-white"
+            >Comments:
+            <strong class="text-white pl-5 pr-15"
+              >{% if regulation %} {{regulation.reviews_count}}{% endif %}</strong
+            ></span
+          >
+          <a class="bg-gray-100 text-black rounded-full px-20 py-10 text-12 font-semibold tracking-0/1em leading-0 lqd-unit-animation-done" href="{{regulation.document}}" rel="category" target="_blank">Download</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="lqd-section py-50">
+  <div class="container">
+    <div class="row">
+      <div
+        class="w-full relative ca-initvalues-applied lqd-animations-done"
+        data-custom-animations="true"
+        data-ca-options='{"animationTarget": ".animation-element", "duration" : 1800 , "delay" : 180 , "ease": "power4.out", "initValues": {"y": "35px", "opacity" : 0} , "animations": {"y": "0px", "opacity" : 1}}'
+      >
+        {% if regulation %}
+        <h2
+          class="ld-fh-element mb-1em text-secondary inline-block relative lqd-highlight-classic lqd-highlight-grow-left"
+        >
+           {{regulation.title|default:"No Document Available"}}
+        </h2>
+
+        <!-- Blog Photos -->
+
+        <div class="row justify-center">
+          <div
+            class="col col-12 ca-initvalues-applied lqd-animations-done"
+            data-custom-animations="true"
+            data-ca-options='{"animationTarget": ".carousel-container .carousel-item-inner", "duration" : 1000 , "delay" : 100 , "ease": "expo.out", "initValues": {"x": "30px", "opacity" : 0} , "animations": {"x": "0px", "opacity" : 1}}'
+          >
+            <div
+              class="carousel-container carousel-dots-style4 carousel-dots-mobile-outside carousel-dots-mobile-center carousel-dots-appended"
+              id="ld-testimonial-carousel"
+            >
+              <div
+                class="carousel-items relative flickity-enabled is-draggable lqd-carousel-ready"
+                data-lqd-flickity='{"cellAlign": "center", "autoPlay": 5000, "pauseAutoPlayOnHover": true, "groupCells": true, "wrapAround": true, "pageDots": true, "prevNextButtons": false, "dotsIndicator": "dots", "dotsAppendTo": "self"}'
+                tabindex="0"
+              >
+                <div
+                  class="flickity-viewport pos-rel w-100 h-100 overflow-hidden is-pointer-down"
+                  style="height: 309.938px; touch-action: pan-y"
+                >
+                  <!-- The Sliders -->
+                  <div
+                    class="flickity-slider d-flex w-100 h-100 pos-rel"
+                    style="transform: translateX(-241.66%); will-change: auto"
+                  >
+                  
+                    {% if regulation.document %}
+                    <div
+                      class="col col-xl-12 col-md-12 col-12 carousel-item flex flex-col justify-center has-one-child"
+                      style="
+                        position: absolute;
+                        left: 0px;
+                        transform: translateX(800%);
+                      "
+                      aria-hidden="true"
+                    >
+                      <div
+                        class="carousel-item-inner relative w-full lqd-unit-animation-done"
+                      >
+                        <div class="carousel-item-content relative w-full">
+                          <div class="row">
+                            <div class="w-full relative">
+                              {% if regulation.document and '.png' in regulation.document or '.jpg' in regulation.document or '.jpeg' in regulation.document %}
+                              <figure class="w-full h-full">
+                                <img
+                                  class="w-full h-full objfit-cover objpos-center"
+                                  src="{{regulation.document}}"
+                                  alt="{{ regulation.title }}"
+                                  width="1200"
+                                  height="500"
+                                  style="
+                                    object-fit: cover;
+                                    object-position: center;
+                                  "
+                                />
+                              </figure>
+                              {% elif regulation.document %}
+                              <!-- Show preview for PDF -->
+                               
+                              <iframe
+                                src="{{regulation.document}}"
+                                width="100%"
+                                height="500px"
+                                style="border: none;"
+                              ></iframe>
+                              {% endif %}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    {% endif %}
+                    
+                  </div>
+                 
+                </div>
+              </div>
+
+              <div
+                class="carousel-dots-mobile carousel-dots-style4 ld-testimonial-carousel carousel-dots-mobile-outside carousel-dots-mobile-center"
+              >
+                <ol class="flickity-page-dots"></ol>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% if regulation.description %}
+          {% for content in regulation.description %}
+          <p
+            class="ld-fh-element text-16 text-dark relative mb-1/5em"
+            style="text-align: justify"
+          >
+            {{ content|safe }}
+          </p>
+          {% endfor %}
+        {% endif %}
+        
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% include 'kg/pages/partial/add_comment.html' %}
+
+
+{% endblock %}
+
+

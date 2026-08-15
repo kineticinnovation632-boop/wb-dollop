@@ -1,0 +1,34 @@
+{% load static %}
+
+
+{% if pages %}
+    <div class="w-full pt-15">
+        <div class="text-center p-10">
+        {% for page in pages %}
+        <!-- Load page link tag -->
+         {% if page.active_page == page.label %}
+        <a
+            href="{% url 'kg:'|add:page.url_name %}?pg={{page.label}}"
+            class="btn button whitespace-nowrap btn-naked btn-icon-right btn-hover-reveal font-bold text-secondary text-15"
+            rel="nofollow"
+            style="color: blue; text-decoration: underline"
+        >
+            <span class="btn-txt mr-5" data-text="Previous Page"
+            >{{page.label}}</span
+            >
+        </a>
+        {% else %}
+        <a
+            href="{% url 'kg:'|add:page.url_name %}?pg={{page.label}}"
+            class="btn button whitespace-nowrap btn-naked btn-icon-right btn-hover-reveal font-bold text-secondary text-15"
+            rel="nofollow"
+            style="text-decoration: underline"
+        >
+            <span class="btn-txt mr-5" data-text="Previous Page"
+            >{{page.label}}</span
+            >
+        </a>
+        {% endif %} {% endfor %}
+        </div>
+    </div>
+{% endif %}

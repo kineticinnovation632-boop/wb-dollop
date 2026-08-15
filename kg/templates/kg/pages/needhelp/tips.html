@@ -1,0 +1,120 @@
+{% extends "kg/components/base-2.html" %} {% load static %} {% block page-title-content %}
+Energy Saving Tips {% endblock %} {% block service-titlebar %}
+
+<div class="titlebar-col col-12 col-lg-8 col-xl-6 px-15">
+  <h1>Energy saving tips</h1>
+  <p>
+    Tips to help you reduce your electricity consumption and save on your energy
+    bills
+  </p>
+  <a
+    class="titlebar-scroll-link"
+    href="#lqd-site-content"
+    data-localscroll="true"
+  >
+    <i class="lqd-icn-ess icon-ion-ios-arrow-down"></i>
+  </a>
+</div>
+
+{% endblock %} {% block content %}
+
+{% if page_content %}
+<section class="lqd-section has-accordion-page pt-100 bg-gray-200">
+  <div class="container">
+    <div class="row">
+      <div class="col col-12 col-xl-6">
+        <h2 class="ld-fh-element relative mb-0/5em text-40">
+          {% if page_content.energy_saving_tips %}{{ page_content.energy_saving_tips.title }}{% endif %}
+        </h2>
+        <div
+          class="accordion accordion-sm accordion-side-spacing accordion-title-round accordion-expander-lg accordion-active-has-fill"
+          id="accordion-bg-title"
+          role="tablist"
+          aria-multiselectable="true"
+        >
+          <div class="accordion-item mb-20 panel animation-element active">
+            <div class="accordion-heading" role="tab">
+              <h4
+                class="accordion-title leading-1/5em text-blue-300"
+                id="heading-1"
+              >
+                <a
+                  class="py-0/65em px-1/5em bg-white text-16 font-bold"
+                  role="button"
+                  data-bs-toggle="collapse"
+                  href="#collapse-1"
+                  aria-expanded="true"
+                  aria-controls="collapse-1"
+                >
+                  <span class="accordion-title-txt"
+                    >Some energy-saving tips</span
+                  >
+                  <span class="accordion-expander text-22">
+                    <i class="lqd-icn-ess icon-ion-ios-arrow-down"></i>
+                    <i class="lqd-icn-ess icon-ion-ios-arrow-up"></i>
+                  </span>
+                </a>
+              </h4>
+            </div>
+            <div
+              class="accordion-collapse collapse show"
+              id="collapse-1"
+              data-bs-parent="#accordion-bg-title"
+              role="tabpanel"
+              aria-labelledby="heading-1"
+            >
+              <div class="pt-1/5em pl-1/5em">
+                {% for content in page_content.energy_saving_tips.content %}
+                <p>{{ content|safe }}</p>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col col-12 col-xl-6 p-0">
+        <div
+          class="w-full relative flex items-center pl-20percent rounded-8 z-1 module-col"
+          data-parallax="true"
+          data-parallax-options='{"ease":["linear"],"start":"top bottom","end":"bottom+=0px top"}'
+          data-parallax-from='{"y":"60px"}'
+          data-parallax-to='{"y":"-75px"}'
+        >
+          <div
+            class="lqd-imggrp-single block pos-rel rounded-inherit"
+            data-shadow-style="4"
+          >
+            <div
+              class="lqd-imggrp-img-container inline-flex pos-rel items-center justify-center rounded-inherit"
+            >
+              <figure class="w-full pos-rel">
+                {% if page_content.energy_saving_tips.img %}
+                <img
+                  class="rounded-inherit"
+                  width="592"
+                  height="674"
+                  src="{{ page_content.energy_saving_tips.img }}"
+                  alt="{{ page_content.energy_saving_tips.title }}"
+                />                
+                {% else %}
+                <img
+                  class="rounded-inherit"
+                  width="592"
+                  height="674"
+                  src="{% static 'kg/assets/images/demo/company/energy-savings.jpg' %}"
+                  alt="{{ page_content.energy_saving_tips.title }}"
+                />
+                {% endif %}
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% else %}
+  <p>No tips available at the moment.</p>
+{% endif %}
+
+{% endblock %}

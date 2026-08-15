@@ -1,0 +1,30 @@
+{% load static %}
+
+{% if page_content and page_content.mini_grid_developer %}
+<div class="w-full relative" id="mini-grid-developer">
+      <h3 class="ld-fh-element relative mb-1em text-24">
+          {{ page_content.mini_grid_developer.title }}
+      </h3>
+      {% for pg_content in page_content.mini_grid_developer.content %}
+          <div class="w-full relative">
+            <p class="ld-fh-element relative mb-1em">
+              {{ pg_content|safe }}
+            </p>
+          </div>
+      {% endfor %}  
+  
+  </div>
+  {% endif %}
+
+  
+      <!-- <h3 class="ld-fh-element relative mb-1em text-24">
+          Mini-grid Developer
+      </h3>
+      <div class="w-full relative">
+        <p class="ld-fh-element relative mb-1em">
+          A mini-grid developer is an individual or organization responsible for the planning, 
+          design, construction, and operation of mini-grid systems. They play a crucial role in 
+          ensuring that mini-grids are developed in accordance with regulatory requirements, 
+          technical standards, and best practices. Developers may work closely with local communities, 
+          government agencies, and other stakeholders to ensure the successful implementation of mini-grid projects.
+        </p> -->

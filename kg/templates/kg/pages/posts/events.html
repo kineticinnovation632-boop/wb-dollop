@@ -1,0 +1,30 @@
+{% extends "kg/components/base-2.html" %} {% load static %} {% block page-title-content %}
+Events {% endblock %} {% block service-titlebar %}
+
+<div class="titlebar-col col-12 col-lg-8 col-xl-6 px-15">
+  <h1>Events</h1>
+  <p class="subtitle">Stay updated with our latest events and activities.</p>
+</div>
+  <a
+    class="titlebar-scroll-link"
+    href="#lqd-site-content"
+    data-localscroll="true"
+  >
+    <i class="lqd-icn-ess icon-ion-ios-arrow-down"></i>
+  </a>
+</div>
+
+{% endblock %}
+
+{% block content %}
+{% include "kg/pages/posts/sections/event_lists.html" %}
+{% endblock %}
+{% block extra_script %}
+<script src="{% static 'kg/assets/vendors/jquery-ui/jquery-ui.min.js' %}"></script>
+<script src="{% static 'kg/assets/vendors/isotope/isotope.pkgd.min.js' %}"></script>
+<script src="{% static 'kg/assets/vendors/isotope/packery-mode.pkgd.min.js' %}"></script>
+<script src="{% static 'kg/assets/vendors/particles.min.js' %}"></script>
+<script src="{% static 'kg/assets/vendors/fontfaceobserver.js' %}"></script>
+<script src="{% static 'kg/assets/js/liquid-gdpr.min.js' %}"></script>
+
+{% endblock %}

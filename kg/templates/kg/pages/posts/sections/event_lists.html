@@ -1,0 +1,235 @@
+{% load static %}
+
+<section class="lqd-section case-studies py-100" id="works">
+    
+    <div class="container">
+        <div class="row">
+            {% if events %}
+                <div class="col col-12 col-xl-6">
+                    <div class="w-full flex flex-col items-start lg:items-center lg:text-center ca-initvalues-applied lqd-animations-done" data-custom-animations="true" data-ca-options="{&quot;animationTarget&quot;: &quot;.animation-element&quot;, &quot;delay&quot; : 100, &quot;ease&quot;: &quot;power4.out&quot;, &quot;initValues&quot;: {&quot;y&quot;: &quot;35px&quot;, &quot;opacity&quot; : 0} , &quot;animations&quot;: {&quot;y&quot;: &quot;0px&quot;, &quot;opacity&quot; : 1}}">
+                        <div class="ld-fancy-heading relative mb-20 py-5 px-15 bg-primary rounded-100 lqd-unit-animation-done">
+                            <h6 class="ld-fh-element relative lowercase m-0 py-10 px-20">Events & Engagements</h6>
+                        </div>
+                        <div class="ld-fancy-heading relative">
+                            <h2 class="mb-0/75em ld-fh-element relative lqd-highlight-classic lqd-highlight-grow-left lqd-highlight-reset-onhover is-in-view" data-inview="true" data-transition-delay="true" data-delay-options="{&quot;elements&quot;: &quot;.lqd-highlight-inner&quot;, &quot;delayType&quot;: &quot;transition&quot;}">
+                                <span>Hearings,</span>
+                                <mark class="lqd-highlight">
+                                    <span class="lqd-highlight-txt">consultations</span>
+                                    <span class="lqd-highlight-inner" style="transition-delay: 0ms;"></span> 
+                                </mark>
+                                <span>& other events</span>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-12 ca-initvalues-applied lqd-animations-done" data-custom-animations="true" data-ca-options="{&quot;animationTarget&quot;: &quot;.lqd-pf-grid&quot;, &quot;ease&quot;: &quot;power4.out&quot;, &quot;initValues&quot;: {&quot;y&quot;: &quot;-55px&quot;, &quot;rotationX&quot; : 25} , &quot;animations&quot;: {&quot;y&quot;: &quot;0px&quot;, &quot;rotationX&quot; : 0}}">
+                <div class="lqd-pf-grid lqd-unit-animation-done" style="">
+                    <div class="liquid-filter-items items-center justify-between mb-50">
+                        <div class="liquid-filter-items-inner flex-grow-1"><span class="liquid-filter-items-label">Filter</span>
+                            <ul class="filter-list filter-list-inline items-center text-0/8em md:hidden" id="lqd-pf-filter-case-studies">
+                                <li class="active" data-filter="*"><span>All</span></li>
+                                <li data-filter=".branding"><span>Featured</span></li>
+                                <li data-filter=".custom-print"><span>Pinned</span></li>
+                                <li data-filter=".digital-design"><span>Upcoming</span></li>
+                                <li data-filter=".ecommerce"><span>Stakeholder Engagements</span></li>
+                                <li data-filter=".masonry"><span>Programmes</span></li>
+                                <li data-filter=".portfolio-single"><span>Others</span></li>
+                            </ul>
+                                <div class="lqd-filter-dropdown hidden md:block" data-form-options="{ &quot;dropdownAppendTo&quot;:  &quot;self&quot; }">
+                                    <select name="lqd-filter-dropdown-lqd-pf-filter-case-studies" id="lqd-filter-dropdown-lqd-pf-filter-case-studies" style="display: none;">
+                                        <option selected="selected" data-filter="*" value="*">All</option>
+                                        <option data-filter=".branding" value=".branding">Featured</option>
+                                        <option data-filter=".custom-print" value=".custom-print">Pinned</option>
+                                        <option data-filter=".digital-design" value=".digital-design">Upcoming</option>
+                                        <option data-filter=".ecommerce" value=".ecommerce">Stakeholder Engagements</option>
+                                        <option data-filter=".masonry" value=".masonry">Programmes</option>
+                                        <option data-filter=".portfolio-single" value=".portfolio-single">Others</option>
+                                    </select><div class="lqd-select-dropdown">
+                                        <div class="ui-selectmenu-menu ui-front">
+                                            <ul aria-hidden="true" aria-labelledby="lqd-filter-dropdown-lqd-pf-filter-case-studies-button" id="lqd-filter-dropdown-lqd-pf-filter-case-studies-menu" role="listbox" tabindex="0" class="ui-menu ui-corner-bottom ui-widget ui-widget-content"></ul>
+                                        </div>
+                                    </div>
+                                    <span tabindex="0" id="lqd-filter-dropdown-lqd-pf-filter-case-studies-button" role="combobox" aria-expanded="false" aria-autocomplete="list" aria-owns="lqd-filter-dropdown-lqd-pf-filter-case-studies-menu" aria-haspopup="true" class="ui-selectmenu-button ui-selectmenu-button-closed ui-corner-all ui-button ui-widget">
+                                        <span class="ui-selectmenu-icon ui-icon ui-icon-triangle-1-s"></span>
+                                        <span class="ui-selectmenu-text">All</span>
+                                    </span>
+                                </div>
+                                <span href="#" class="btn font-bold text-14 uppercase tracking-0/5 whitespace-nowrap btn-naked text-primary hover:text-primary btn-icon-shaped btn-has-label" target="_blank">
+                                    <span class="btn-txt" data-text="See More">.</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="lqd-pf-row row flex flex-wrap -mx-25" data-liquid-masonry="true" data-masonry-options="{&quot;filtersID&quot;: &quot;#lqd-pf-filter-case-studies&quot;}" style="position: relative; height: 892.75px;">
+                            
+                            {% if featured_posts %}
+                                {% for event in featured_posts %}
+                                <div class="px-25 py-0 lqd-pf-column col-lg-4 col-sm-6 col-12 masonry-item branding" style="position: absolute; left: 0px; top: 0px;">
+                                        <article class="lqd-pf-item lqd-pf-item-style-2 lqd-pf-overlay-bg-scale lqd-pf-text-custom pf-details-h-str liquid-portfolio type-liquid-portfolio status-publish format-standard has-post-thumbnail hentry liquid-portfolio-category-digital-design liquid-portfolio-category-ecommerce liquid-portfolio-category-portfolio-single">
+                                            <div class="lqd-pf-item-inner">
+                                                <div class="lqd-pf-img mb-1em relative rounded-6 overflow-hidden">
+                                                    <figure>
+                                                        <figure class="w-full">
+                                                            <img width="720" height="460" src="{{ event.img }}" class="w-full" alt="{{ event.sub_title }}">
+                                                        </figure>
+                                                    </figure>
+                                                    <span class="lqd-pf-overlay-bg lqd-overlay flex items-center justify-center text-white bg-transparent" style="background-image: linear-gradient(130deg, rgba(51, 106, 234, 0.87) 0%, rgb(255, 85, 56) 100%);">
+                                                        <i class="lqd-icn-ess icon-md-arrow-forward"></i></span>
+                                                    </div>
+                                                    <div class="lqd-pf-details">
+                                                        <h5 class="lqd-pf-title mt-0 mb-0/2em">{{ event.title }}</h5>
+                                                        <ul class="reset-ul inline-nav lqd-pf-cat inline-flex relative z-2">
+                                                            <li><a href="#">{{ event.category }}</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <a href="{% url 'kg:blog' event.slug %}" class="lqd-overlay flex lqd-pf-overlay-link lqd-cc-label-trigger"></a>
+                                            </div>
+                                        </article>
+                                </div>
+                                {% endfor %}
+                            {% endif %}
+                            {% for event in events %}                                
+                                {% if event.event_status == 'PINNED' %}                       
+                                    <div class="px-25 py-0 lqd-pf-column col-lg-4 col-sm-6 col-12 masonry-item custom-print" style="position: absolute; left: 389px; top: 0px;">
+                                            <article class="lqd-pf-item lqd-pf-item-style-2 lqd-pf-overlay-bg-scale lqd-pf-text-custom pf-details-h-str liquid-portfolio type-liquid-portfolio status-publish format-standard has-post-thumbnail hentry liquid-portfolio-category-digital-design liquid-portfolio-category-ecommerce liquid-portfolio-category-portfolio-single">
+                                                <div class="lqd-pf-item-inner">
+                                                    <div class="lqd-pf-img mb-1em relative rounded-6 overflow-hidden">
+                                                        <figure>
+                                                            <figure class="w-full">
+                                                                <img width="720" height="460" src="{{ event.img }}" class="w-full" alt="{{ event.sub_title }}">
+                                                            </figure>
+                                                        </figure>
+                                                        <span class="lqd-pf-overlay-bg lqd-overlay flex items-center justify-center text-white bg-transparent" style="background-image: linear-gradient(130deg, rgba(51, 106, 234, 0.87) 0%, rgb(255, 85, 56) 100%);">
+                                                            <i class="lqd-icn-ess icon-md-arrow-forward"></i></span>
+                                                        </div>
+                                                        <div class="lqd-pf-details">
+                                                            <h5 class="lqd-pf-title mt-0 mb-0/2em">{{ event.title }}</h5>
+                                                            <ul class="reset-ul inline-nav lqd-pf-cat inline-flex relative z-2">
+                                                                <li><a href="#">{{ event.category }}</a></li>
+                                                            </ul>
+                                                        </div>
+                                                        <a href="{% url 'kg:blog' event.slug %}" class="lqd-overlay flex lqd-pf-overlay-link lqd-cc-label-trigger"></a>
+                                                </div>
+                                            </article>
+                                    </div>
+                                {% endif %}
+                                {% if event.event_status == 'UPCOMING' %}
+                                    <div class="px-25 py-0 lqd-pf-column col-lg-4 col-sm-6 col-12 masonry-item digital-design" style="position: absolute; left: 779px; top: 0px;">
+                                        <article class="lqd-pf-item lqd-pf-item-style-2 lqd-pf-overlay-bg-scale lqd-pf-text-custom pf-details-h-str liquid-portfolio type-liquid-portfolio status-publish format-standard has-post-thumbnail hentry liquid-portfolio-category-digital-design liquid-portfolio-category-ecommerce liquid-portfolio-category-portfolio-single">
+                                            <div class="lqd-pf-item-inner">
+                                                <div class="lqd-pf-img mb-1em relative rounded-6 overflow-hidden">
+                                                    <figure>
+                                                        <figure class="w-full">
+                                                            <img width="720" height="460" src="{{ event.img }}" class="w-full" alt="{{ event.sub_title }}">
+                                                        </figure>
+                                                    </figure>
+                                                    <span class="lqd-pf-overlay-bg lqd-overlay flex items-center justify-center text-white bg-transparent" style="background-image: linear-gradient(130deg, rgba(51, 106, 234, 0.87) 0%, rgb(255, 85, 56) 100%);">
+                                                        <i class="lqd-icn-ess icon-md-arrow-forward"></i></span>
+                                                    </div>
+                                                    <div class="lqd-pf-details">
+                                                        <h5 class="lqd-pf-title mt-0 mb-0/2em">{{ event.title }}</h5>
+                                                        <ul class="reset-ul inline-nav lqd-pf-cat inline-flex relative z-2">
+                                                            <li><a href="#">{{ event.category }}</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <a href="{% url 'kg:blog' event.slug %}" class="lqd-overlay flex lqd-pf-overlay-link lqd-cc-label-trigger"></a>
+                                            </div>
+                                        </article>
+                                    </div>
+                                {% endif %}
+                                
+                                {% if event.event_category == 'PUBLIC_HEARING' or event.event_category == 'STAKEHOLDER_ENGAGEMENT' and event.event_status != 'UPCOMING' or event.event_status == 'PINNED' %}
+                                    <div class="px-25 py-0 lqd-pf-column col-lg-4 col-sm-6 col-12 masonry-item ecommerce" style="position: absolute; left: 0px; top: 318px;">
+                                            <article class="lqd-pf-item lqd-pf-item-style-2 lqd-pf-overlay-bg-scale lqd-pf-text-custom pf-details-h-str liquid-portfolio type-liquid-portfolio status-publish format-standard has-post-thumbnail hentry liquid-portfolio-category-digital-design liquid-portfolio-category-ecommerce liquid-portfolio-category-portfolio-single">
+                                                <div class="lqd-pf-item-inner">
+                                                    <div class="lqd-pf-img mb-1em relative rounded-6 overflow-hidden">
+                                                        <figure>
+                                                            <figure class="w-full">
+                                                                <img width="720" height="460" src="{{ event.img }}" class="w-full" alt="{{ event.sub_title }}">
+                                                            </figure>
+                                                        </figure>
+                                                        <span class="lqd-pf-overlay-bg lqd-overlay flex items-center justify-center text-white bg-transparent" style="background-image: linear-gradient(130deg, rgba(51, 106, 234, 0.87) 0%, rgb(255, 85, 56) 100%);">
+                                                            <i class="lqd-icn-ess icon-md-arrow-forward"></i></span>
+                                                        </div>
+                                                        <div class="lqd-pf-details">
+                                                            <h5 class="lqd-pf-title mt-0 mb-0/2em">{{ event.title }}</h5>
+                                                            <ul class="reset-ul inline-nav lqd-pf-cat inline-flex relative z-2">
+                                                                <li><a href="#">{{ event.category }}</a></li>
+                                                            </ul>
+                                                        </div>
+                                                        <a href="{% url 'kg:blog' event.slug %}" class="lqd-overlay flex lqd-pf-overlay-link lqd-cc-label-trigger"></a>
+                                                </div>
+                                            </article>
+                                    </div>
+                                {% endif %}
+                                {% if event.event_category == 'CONFERENCE' or event.event_category == 'WORKSHOP' and event.event_status != 'UPCOMING' or event.event_status == 'PINNED' %}
+                                    <div class="px-25 py-0 lqd-pf-column col-lg-4 col-sm-6 col-12 masonry-item masonry" style="position: absolute; left: 779px; top: 318px;">
+                                            <article class="lqd-pf-item lqd-pf-item-style-2 lqd-pf-overlay-bg-scale lqd-pf-text-custom pf-details-h-str liquid-portfolio type-liquid-portfolio status-publish format-standard has-post-thumbnail hentry liquid-portfolio-category-digital-design liquid-portfolio-category-ecommerce liquid-portfolio-category-portfolio-single">
+                                                <div class="lqd-pf-item-inner">
+                                                    <div class="lqd-pf-img mb-1em relative rounded-6 overflow-hidden">
+                                                        <figure>
+                                                            <figure class="w-full">
+                                                                <img width="720" height="460" src="{{ event.img }}" class="w-full" alt="{{ event.sub_title }}">
+                                                            </figure>
+                                                        </figure>
+                                                        <span class="lqd-pf-overlay-bg lqd-overlay flex items-center justify-center text-white bg-transparent" style="background-image: linear-gradient(130deg, rgba(51, 106, 234, 0.87) 0%, rgb(255, 85, 56) 100%);">
+                                                            <i class="lqd-icn-ess icon-md-arrow-forward"></i></span>
+                                                        </div>
+                                                        <div class="lqd-pf-details">
+                                                            <h5 class="lqd-pf-title mt-0 mb-0/2em">{{ event.title }}</h5>
+                                                            <ul class="reset-ul inline-nav lqd-pf-cat inline-flex relative z-2">
+                                                                <li><a href="#">{{ event.category }}</a></li>
+                                                            </ul>
+                                                        </div>
+                                                        <a href="{% url 'kg:blog' event.slug %}" class="lqd-overlay flex lqd-pf-overlay-link lqd-cc-label-trigger"></a>
+                                                </div>
+                                            </article>
+                                    </div>
+                                {% endif %}
+                                {% if event.event_category == 'SEMINAR' or event.event_category == 'OTHER' and event.event_status != 'UPCOMING' or event.event_status == 'PINNED' %}
+                                    <div class="px-25 py-0 lqd-pf-column col-lg-4 col-sm-6 col-12 masonry-item portfolio-single" style="position: absolute; left: 389px; top: 573px;">
+                                            <article class="lqd-pf-item lqd-pf-item-style-2 lqd-pf-overlay-bg-scale lqd-pf-text-custom pf-details-h-str liquid-portfolio type-liquid-portfolio status-publish format-standard has-post-thumbnail hentry liquid-portfolio-category-digital-design liquid-portfolio-category-ecommerce liquid-portfolio-category-portfolio-single">
+                                                <div class="lqd-pf-item-inner">
+                                                    <div class="lqd-pf-img mb-1em relative rounded-6 overflow-hidden">
+                                                        <figure>
+                                                            <figure class="w-full">
+                                                                <img width="720" height="460" src="{{ event.img }}" class="w-full" alt="{{ event.sub_title }}">
+                                                            </figure>
+                                                        </figure>
+                                                        <span class="lqd-pf-overlay-bg lqd-overlay flex items-center justify-center text-white bg-transparent" style="background-image: linear-gradient(130deg, rgba(51, 106, 234, 0.87) 0%, rgb(255, 85, 56) 100%);">
+                                                            <i class="lqd-icn-ess icon-md-arrow-forward"></i></span>
+                                                        </div>
+                                                        <div class="lqd-pf-details">
+                                                            <h5 class="lqd-pf-title mt-0 mb-0/2em">{{ event.title }}</h5>
+                                                            <ul class="reset-ul inline-nav lqd-pf-cat inline-flex relative z-2">
+                                                                <li><a href="#">{{ event.category }}</a></li>
+                                                            </ul>
+                                                        </div>
+                                                        <a href="{% url 'kg:blog' event.slug %}" class="lqd-overlay flex lqd-pf-overlay-link lqd-cc-label-trigger"></a>
+                                                </div>
+                                            </article>
+                                    </div>                                
+                                {% endif %}
+                                
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <!-- Add pagination here -->
+                {% include "kg/pages/partial/pagination.html" %}
+            {% else %}
+                <div
+                    class="titlebar-col col-12 col-lg-8 col-xl-6 px-15"
+                    style="
+                    justify-content: center;
+                    flex-direction: column;
+                    align-items: center;
+                    display: flex;
+                    "
+                >
+                    <h1>Oops! Sorry</h1>
+                    <p>No News Information found</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</section>

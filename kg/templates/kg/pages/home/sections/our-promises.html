@@ -1,0 +1,38 @@
+{% load static %}
+
+<section
+  class="lqd-section py-100 thin-fixed-bg bg-center bg-cover relative transition-all"
+  style="
+    background-image: url(&quot;/static/kg/assets/images/demo/company/fixed-bg.jpg&quot;);
+  "
+>
+  <div class="background-overlay transition-all bg-secondary opacity-90"></div>
+  <div class="container">
+    <div class="row">
+      <div
+        class="col col-lg-12"
+        data-custom-animations="true"
+        data-ca-options='{"animationTarget": ".animation-element", "duration" : 800 , "delay" : 100 , "ease": "power4.out", "initValues": {"opacity" : 0} , "animations": {"opacity" : 1}}'
+      >
+        <div class="ld-fancy-heading relative text-center">
+          <h2
+            class="ld-fh-element text-50 mb-0/5em inline-block relative animation-element"
+          >
+            {% if page_contents and page_contents.our_commitment %}
+            {% for ls_content in page_contents.our_commitment.content_list %}
+            <span class="text-white">{{ ls_content.title|safe }}</span>
+            <span class="text-primary">{{ ls_content.content|safe }}</span>
+            {% endfor %}
+            {% else %}
+            <span class="text-white"
+              >We are committed to creating an environment of loyalty, trust,
+              collaboration, and</span
+            >
+            <span class="text-primary">stakeholder engagement</span>
+            {% endif %}
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

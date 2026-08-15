@@ -1,0 +1,49 @@
+{% load static %}
+
+<template id="lqd-snickersbar">
+      <div
+        class="lqd-snickersbar flex flex-wrap lqd-snickersbar-in"
+        data-item-id
+      >
+        <div class="lqd-snickersbar-inner flex flex-wrap items-center">
+          <div class="lqd-snickersbar-detail">
+            <p class="hidden lqd-snickersbar-addding-temp my-0">
+              Adding {{itemName}} to cart
+            </p>
+            <p class="hidden lqd-snickersbar-added-temp my-0">
+              Added {{itemName}} to cart
+            </p>
+            <p class="my-0 lqd-snickersbar-msg flex items-center my-0"></p>
+            <p class="my-0 lqd-snickersbar-msg-done flex items-center my-0"></p>
+          </div>
+          <div class="lqd-snickersbar-ext ml-4"></div>
+        </div>
+      </div>
+    </template>
+    <template id="lqd-temp-sticky-header-sentinel">
+      <div
+        class="lqd-sticky-sentinel invisible absolute pointer-events-none"
+      ></div>
+    </template>
+    <div
+      class="lity"
+      role="dialog"
+      aria-label="Dialog Window (Press escape to close)"
+      tabindex="-1"
+      data-modal-type="default"
+    >
+      <div class="lity-wrap" data-lity-close role="document">
+        <div class="lity-loader" aria-hidden="true">Loading...</div>
+        <div class="lity-container">
+          <div class="lity-content"></div>
+        </div>
+        <button
+          class="lity-close"
+          type="button"
+          aria-label="Close (Press escape to close)"
+          data-lity-close
+        >
+          &times;
+        </button>
+      </div>
+    </div>

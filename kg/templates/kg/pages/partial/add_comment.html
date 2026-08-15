@@ -1,0 +1,291 @@
+{% load static %}
+
+
+<!-- Add  -->
+<section
+  class="lqd-section how-it-work pt-30 pb-80 ca-initvalues-applied lqd-animations-done"
+  id="how-it-work"
+  data-custom-animations="true"
+  data-ca-options='{"animationTarget": ".animation-element" ,  "duration" : 500, "startDelay" : 500, "ease": "expo.inOut" ,  "initValues": {"scaleX" : 0.75, "scaleY" : 0.75, "opacity" : 0} , "animations": {"scaleX" : 1, "scaleY" : 1, "opacity" : 1}}'
+>
+  <div class="container">
+    <div class="w-full flex flex-row sm:flex-col">
+      <div
+        class="w-60percent min-h-470 relative flex flex-col overflow-hidden items-center justify-start pt-350 rounded-12 shadow-md sm:w-full module-first-col animation-element ca-initvalues-applied lqd-animations-done lqd-unit-animation-done"
+        data-custom-animations="true"
+        data-ca-options='{"animationTarget": ".animation-element" ,  "duration" : 1000, "ease": "expo.out" ,  "initValues": {"y": "100px"} , "animations": {"y": "0px"}}'
+        
+      >
+        <div
+          class="relative flex flex-col transition-all py-15 px-20 mx-2percent bg-white rounded-10 module-form"
+        >
+          <div class="relative flex flex-wrap items-start justify-between">
+            <div class="w-60percent ld-fancy-heading relative p-10 sm:w-full">
+              <h2
+                class="ld-fh-element relative mb-0 text-30 lqd-unit-animation-done"
+                
+              >
+                Add Your Comment
+              </h2>
+            </div>
+            <div
+              class="w-40percent relative text-end p-10 sm:w-full sm:text-start animation-element lqd-unit-animation-done"
+              
+            >
+              <span class="text-12 text-black-70">or Call for Us on:</span
+              ><br /><strong
+                ><span class="text-15 text-primary"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="1em"
+                    viewBox="0 0 512 512"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"
+                    ></path>
+                  </svg>
+                  + 1 223 38 87</span
+                ></strong
+              >
+            </div>
+          </div>
+          <div
+            class="lqd-contact-form lqd-contact-form-inputs-underlined lqd-contact-form-button-circle px-15"
+          >
+            <div
+              role="form"
+              class="lqd-cf"
+              id="form-contact"
+              lang="en-US"
+              dir="ltr"
+            >
+              <div class="screen-reader-response">
+                <p role="status" aria-live="polite" aria-atomic="true"></p>
+              </div>
+              {% if messages %}
+                {% for message in messages %}
+                  <div class="alert alert-{{ message.tags }} alert-dismissible fade show mb-0" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+                {% endfor %}
+              {% endif %}
+              <form
+                action="{% url 'kg:reviews' review_id %}?signal={% if blog %}post{% elif regulation %}regulation{% endif %}"
+                method="post"
+                class="lqd-cf-form init"
+                novalidate="novalidate"
+                data-status="init"
+                id="comment-form"
+              >
+                {% csrf_token %}
+                <input type="hidden" name="id" 
+                    value="{% if blog %}{{ id }}{% elif regulation %}{{ regulation.id }}{% endif %}" />
+
+                <div class="row -mx-15">
+                  <div
+                    class="col-md-6 px-15 animation-element lqd-unit-animation-done"
+                    
+                  >
+                    <span class="lqd-form-control-wrap name"
+                      ><input
+                        type="text"
+                        name="name"
+                        value=""
+                        size="40"
+                        class="lqd-cf-form-control text-17 leading-1/7em text-gray-700 border-black-20"
+                        aria-required="true"
+                        aria-invalid="false"
+                        placeholder="Your name *"
+                      /> </span
+                    ><span class="lqd-form-control-wrap"
+                      ><input
+                        type="email"
+                        name="email"
+                        value=""
+                        size="40"
+                        class="lqd-cf-form-control text-17 leading-1/7em text-gray-700 border-black-20"
+                        aria-required="true"
+                        aria-invalid="false"
+                        placeholder="Your email *"
+                      /> </span
+                    ><span class="lqd-form-control-wrap subject"
+                      >
+                      <label for="rating">Rating:</label>
+                      <input type="hidden" name="rating" id="rating" value="0" />
+                      <div id="star-rating" class="star-rating">
+                      <span id="star1" class="text-primary text-30" style="cursor: pointer;">☆</span>
+                      <span id="star2" class="text-primary text-30" style="cursor: pointer;">☆</span>
+                      <span id="star3" class="text-primary text-30" style="cursor: pointer;">☆</span>
+                      <span id="star4" class="text-primary text-30" style="cursor: pointer;">☆</span>
+                      <span id="star5" class="text-primary text-30" style="cursor: pointer;">☆</span>
+                      </div>
+                      
+                      </span>
+                  </div>
+                  <div
+                    class="col-md-6 px-15 animation-element lqd-unit-animation-done"
+                    
+                  >
+                    <span class="lqd-form-control-wrap message">
+                      <textarea
+                        name="message"
+                        cols="10"
+                        rows="6"
+                        class="lqd-cf-form-control text-17 leading-1/7em text-gray-700 border-black-20"
+                        aria-required="true"
+                        aria-invalid="false"
+                        placeholder="Your message *"
+                      ></textarea>
+                    </span>
+                  </div>
+                  <div
+                    class="col-md-6 mt-1/5rem px-15 animation-element lqd-unit-animation-done"
+                    
+                  >
+                    <p>
+                      Please make sure to fill in all required fields before submitting your comment. We value your feedback and look forward to hearing from you!
+                    </p>
+                  </div>
+                  <div
+                    class="col-md-6 mt-1/5rem text-md-right px-15 animation-element lqd-unit-animation-done"
+                    
+                  >
+                    <input
+                      type="submit"
+                      value="Post Comment"
+                      class="lqd-cf-form-control has-spinner bg-primary border-0 text-14 font-bold tracking-0/5 uppercase text-white"
+                    />
+                    
+                  </div>
+                </div>
+                <div class="lqd-cf-response-output" aria-hidden="true"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="w-40percent relative flex flex-wrap flex-col items-start justify-start bg-white rounded-12 shadow-md transition-all ml-20 py-35 px-30 sm:w-full sm:m-0 module-content-col animation-element ca-initvalues-applied lqd-unit-animation-done lqd-animations-done"
+        data-custom-animations="true"
+        data-ca-options='{"animationTarget": ".ld-fancy-heading, .iconbox" ,  "duration" : 750, "startDelay" : 1250, "delay" : 50, "ease": "expo.out" ,  "initValues": {"y": "70px" ,  "scaleX" : 0.5, "scaleY" : 0.5, "opacity" : 0} , "animations": {"y": "0px" ,  "scaleX" : 1, "scaleY" : 1, "opacity" : 1}}'
+        
+      >
+        <div class="ld-fancy-heading relative lqd-unit-animation-done" >
+          <h6
+            class="text-14 font-medium mb-1/5em text-black-40 ld-fh-element inline-block relative"
+          >
+            {% if blog %}Related Posts{% elif regulation %}Related Regulations{% endif %}
+          </h6>
+        </div>
+        {% if blog and 'related_posts' in blog %}
+          {% for post in blog.related_posts %}
+            <div class="iconbox flex-grow-1 relative flex-wrap iconbox-circle iconbox-icon-ripple items-center content-start text-left pr-10 pb-20 border-bottom border-black-10 md:pr-0 lqd-unit-animation-done">
+              <div class="iconbox-icon-wrap mr-25">
+                <div class="iconbox-icon-container inline-flex relative z-1 rounded-full w-20 h-20 text-12 bg-slate-700 text-white">
+                  <i aria-hidden="true" class="lqd-icn-ess icon-num-{{ forloop.counter }}"></i>
+                </div>
+              </div>
+              <h3 class="lqd-iconbox-heading m-0 text-16 font-semibold leading-1/2em">
+                {{ post.sub_title }}
+              </h3>
+              <div class="contents mt-10 w-full">
+                <p class="text-14 leading-18">
+                  {{ post.content|truncatewords:5|safe }}
+                  <!-- Continue Reading link -->
+                  <a href="{% url 'kg:blog' post.slug %}" class="text-primary font-semibold">Continue reading</a>
+                 </p>
+
+              </div>
+            </div>
+            {% if not forloop.last %}
+              <div class="spacer w-full">
+                <div class="w-full h-20"></div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        {% elif regulation and 'related_regulations' in regulation %}
+          {% for post in regulation.related_regulations %}
+            <div class="iconbox flex-grow-1 relative flex-wrap iconbox-circle iconbox-icon-ripple items-center content-start text-left pr-10 pb-20 border-bottom border-black-10 md:pr-0 lqd-unit-animation-done">
+              <div class="iconbox-icon-wrap mr-25">
+                <div class="iconbox-icon-container inline-flex relative z-1 rounded-full w-20 h-20 text-12 bg-slate-700 text-white">
+                  <i aria-hidden="true" class="lqd-icn-ess icon-num-{{ forloop.counter }}"></i>
+                </div>
+              </div>
+              <h3 class="lqd-iconbox-heading m-0 text-16 font-semibold leading-1/2em">
+                {{ post.title }}
+              </h3>
+              <div class="contents mt-10 w-full">
+                <p class="text-14 leading-18">
+                  {{ post.description|truncatewords:5|safe }}
+                  <!-- Continue Reading link -->
+                  <a href="{% url 'kg:read-regulation' post.id %}" class="text-primary font-semibold">Continue reading</a>
+                 </p>
+              </div>
+            </div>
+            {% if not forloop.last %}
+              <div class="spacer w-full">
+                <div class="w-full h-20"></div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        {% else %}
+          <p>No related posts available.</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{% block extra_script %}
+<script>
+  // Deactive at submit button after click to prevent multiple submissions
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector("#comment-form");
+    const submitButton = form.querySelector('input[type="submit"]');
+
+    const stars = document.querySelectorAll("#star-rating span");
+    const ratingInput = document.querySelector("#rating");
+
+    stars.forEach((star, index) => {
+      star.addEventListener("click", () => {
+        ratingInput.value = index + 1;
+        stars.forEach((s, i) => {
+            s.classList.add("text-primary");
+          s.textContent = i <= index ? "★" : "☆";
+        });
+      });
+    });
+    
+    form.addEventListener("submit", function (e) {
+      // Loop through all input fields make sure they are filled before disabling the submit button
+      const inputs = form.querySelectorAll("input, textarea");
+      let empty_inputs = [];
+      inputs.forEach((input) => {
+        if (input.name !== "subject" && input.name !== 'id' && !input.value.trim()) {
+          // color the empty input field red
+          input.style.borderColor = "red";
+          input.focus();
+          empty_inputs.push(input);
+        }
+      });
+      // If any input is empty, prevent form submission
+      if (empty_inputs.length > 0) {
+        alert("Please fill in all required fields before submitting your comment.");
+        e.preventDefault();
+        return false;
+      } else {
+        submitButton.disabled = true;
+        submitButton.value = "Sent. Thank you";
+        // reload the page after 1 second to show the success message
+        alert("Your comment has been submitted. Thank you for your feedback!");
+        setTimeout(function () {
+          location.reload();
+        }, 1000);
+      }
+    });
+  });
+</script>
+{% endblock %}

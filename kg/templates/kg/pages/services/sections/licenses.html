@@ -1,0 +1,46 @@
+{% load static %}
+
+<!-- Licence Table -->
+{% if page_content and page_content.licenses %}
+<div class="w-full relative" id="licence">
+    <h3 class="ld-fh-element relative mb-1em text-24">Licenses</h3>
+    <div class="licence">
+        <table>
+          <thead>
+            <tr>
+              <td>S/N</td>
+              <td>Application</td>
+              <td>Regulatory Instrument & Requirements</td>
+              <td>Fee</td>
+              <td>Timeline</td>
+            </tr>
+          </thead>
+          <tbody>
+            
+            {% for license in page_content.licenses.content_list %}
+                <tr>
+                  <td>{{ forloop.counter }}</td>
+                  <td>{{ license.title }}</td>
+                  <td>
+                    <a
+                      href="{{ license.url }}"
+                      class="btn btn-naked leading-16"
+                    >
+                      <span
+                        class="btn-txt"
+                        data-text="Click here to download {{ license.title }}"
+                        >Click here to download {{ license.title }}</span
+                      >
+                    </a>
+                  </td>
+                  <td>{{ license.content }}</td>
+                  <td>{{ license.timeline|default:"6 Months" }}</td>
+                </tr>
+            {% endfor %}
+            
+          </tbody>
+        </table>
+      </div>  
+    </div>
+    {% endif %}
+        <!-- End Licence Table -->

@@ -1,0 +1,184 @@
+{% load static %}
+
+<section class="lqd-section has-accordion pt-60 pb-120">
+  <div class="container">
+    <div class="row items-center">
+      <div
+        class="col col-12 col-xl-5"
+        data-custom-animations="true"
+        data-ca-options='{"animationTarget": ".animation-element", "duration" : 1800 , "delay" : 180 , "ease": "power4.out", "initValues": {"y": "35px", "opacity" : 0} , "animations": {"y": "0px", "opacity" : 1}}'
+        data-localscroll="true"
+        data-localscroll-options='{"itemsSelector":"a"}'
+      >
+        <div class="ld-fancy-heading relative animation-element">
+          <h2 class="ld-fh-element mb-0/5em inline-block relative">
+            {% if page_contents and page_contents.empowering_communities_with_safe_and_reliable_electricity %}
+            {{ page_contents.empowering_communities_with_safe_and_reliable_electricity.title|safe }}
+            {% else %}
+            Empowering Communities with Safe and Reliable Electricity.
+            {% endif %}
+          </h2>
+        </div>
+        <div class="ld-fancy-heading relative animation-element">
+          {% if page_contents and page_contents.empowering_communities_with_safe_and_reliable_electricity %}
+          <p class="ld-fh-element mb-2/5em inline-block relative">
+            {% for pg_content in page_contents.empowering_communities_with_safe_and_reliable_electricity.content %}
+            {{ pg_content|safe}}
+            {% endfor %}
+          </p>
+          {% else %}
+          <p class="ld-fh-element mb-2/5em inline-block relative">
+            Promote and ensure an investor-friendly industry and efficient
+            market structure to meet the needs of Nigeria for safe, adequate,
+            reliable and affordable electricity
+          </p>
+          {% endif %}
+        </div>
+        <a
+          href="{% url 'kg:about-us' %}"
+          class="btn btn-solid btn-md font-bold btn-icon-right btn-hover-reveal text-16 text-secondary bg-primary rounded-4 hover:bg-secondary hover:text-white animation-element"
+          target="_blank"
+          rel="nofollow"
+        >
+          <span class="btn-txt" data-text="learn more">learn more</span>
+          <span class="btn-icon text-1/15em">
+            <i
+              aria-hidden="true"
+              class="lqd-icn-ess icon-md-arrow-round-forward"
+            ></i>
+          </span>
+        </a>
+      </div>
+      <div
+        class="col col-12 col-xl-6 offset-xl-1"
+        data-custom-animations="true"
+        data-ca-options='{"animationTarget": ".animation-element", "duration" : 1800 , "delay" : 180 , "ease": "power4.out", "initValues": {"y": "35px", "opacity" : 0} , "animations": {"y": "0px", "opacity" : 1}}'
+      >
+        <div
+          class="accordion accordion-lg accordion-side-spacing accordion-title-round accordion-expander-lg accordion-active-has-fill"
+          id="accordion-bg-title"
+          role="tablist"
+          aria-multiselectable="true"
+        >
+          <div class="accordion-item mb-30 panel animation-element active">
+            <div class="accordion-heading" role="tab">
+              <h4 class="accordion-title" id="heading-1">
+                <a
+                  class="text-16 font-bold leading-1/5em text-white rounded-4 py-1em px-1/5em bg-slate-100"
+                  role="button"
+                  data-bs-toggle="collapse"
+                  href="#collapse-1"
+                  aria-expanded="true"
+                  aria-controls="collapse-1"
+                >
+                  <span class="accordion-title-txt">KERC Mission</span>
+                  <span class="accordion-expander text-22">
+                    <i class="lqd-icn-ess icon-ion-ios-arrow-down"></i>
+                    <i class="lqd-icn-ess icon-ion-ios-arrow-up"></i>
+                  </span>
+                </a>
+              </h4>
+            </div>
+            <div
+              id="collapse-1"
+              class="accordion-collapse collapse show"
+              data-bs-parent="#accordion-bg-title"
+              role="tabpanel"
+              aria-labelledby="heading-1"
+            >
+            {% if page_contents and page_contents.kerc_mission %}
+              <div class="pb-0 px-1/5em pt-1/5em" style="text-align: justify;">
+                {% if page_contents.kerc_mission.content_list %}
+                {% for content in page_contents.kerc_mission.content_list %}
+                <b>{{ content.title }}</b><br />{{ content.content|safe }}
+                {% if not forloop.last %}<hr />{% endif %}
+                {% endfor %}
+                {% else %}
+                {{ page_contents.kerc_mission.content|safe }}
+                {% endif %}               
+              </div>
+              {% else %}
+              <div class="pb-0 px-1/5em pt-1/5em">
+                <b>Mission</b><br />To ensure the provision of reliable,
+                affordable, and sustainable electricity services to the people
+                of Kogi State by fostering transparency, promoting investment
+                and enforcing regulations that protects consumer rights while
+                encouraging innovation and efficiency in the electricity sector.
+                <hr />
+                <b>Vision</b><br />To be a leading regulatory authority driving
+                universal access to sustainable, efficient and affordable
+                electricity while empowering the people of Kogi State and
+                fostering socio-economic growth through innovative and
+                transparent governance in the power sector
+                <hr />
+                <b>Motto</b><br />Regulating Power, Transforming Lives.
+              </div>
+              {% endif %}
+            </div>
+          </div>
+          <div class="accordion-item mb-30 panel animation-element">
+            <div class="accordion-heading" role="tab">
+              <h4 class="accordion-title" id="heading-2">
+                <a
+                  class="collapsed text-16 font-bold leading-1/5em text-white rounded-4 py-1em px-1/5em bg-slate-100"
+                  role="button"
+                  data-bs-toggle="collapse"
+                  href="#collapse-2"
+                  aria-expanded="false"
+                  aria-controls="collapse-2"
+                >
+                  <span class="accordion-title-txt">History</span>
+                  <span class="accordion-expander text-22">
+                    <i class="lqd-icn-ess icon-ion-ios-arrow-down"></i>
+                    <i class="lqd-icn-ess icon-ion-ios-arrow-up"></i>
+                  </span>
+                </a>
+              </h4>
+            </div>
+            <div
+              id="collapse-2"
+              class="accordion-collapse collapse"
+              data-bs-parent="#accordion-bg-title"
+              role="tabpanel"
+              aria-labelledby="heading-2"
+            >
+              {% if page_contents and page_contents.history %}
+              <div class="pb-0 px-1/5em pt-1/5em" style="text-align: justify;">
+                {% for pg_content in page_contents.history.content %}
+                {{ pg_content|safe}}
+                {% endfor %}
+              </div>
+              {% else %}
+              <div class="pb-0 px-1/5em pt-1/5em">
+                <p>
+                  The Kogi State Electricity Regulatory Commission (KERC) is an
+                  independent regulatory body with authority over the regulation
+                  of the electricity market in Kogi State. KERC was formed in
+                  2024 under the Electricity Act of 2023 and the amended Act of
+                  2024, which was duly signed by the President. This legislation
+                  requests every state to establish its own Electricity Law,
+                  empowering the state to participate in the electricity market
+                  by:
+                </p>
+                <ul>
+                  <li>Ensuring the review of electricity tariffs</li>
+                  <li>Implementing transparent policies regarding subsidies</li>
+                  <li>
+                    Promoting policies that are efficient and environmentally
+                    friendly
+                  </li>
+                  <li>
+                    Forming and enforcing standards in the creation and use of
+                    electricity within the state
+                  </li>
+                </ul>
+                .
+              </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

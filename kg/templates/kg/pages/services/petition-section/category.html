@@ -1,0 +1,72 @@
+{% load static %}
+
+<div class="w-full relative">
+            <div
+              class="lqd-fancy-menu lqd-custom-menu pos-rel menu-items-has-fill lqd-menu-td-none module-list-bg"
+            >
+              <h6
+                class="ld-fh-element mb-0/5em inline-block relative lqd-highlight-classic lqd-highlight-grow-left"
+              >
+                Topic(s)
+              </h6>
+              <ul class="reset-ul link-15 link-black">
+                {% if page_content and page_content.petition %}
+                <li class="mb-5 items-center">
+                  <a
+                    class="w-full bg-accent font-bold"
+                    href="#petition"
+                    data-localscroll="true"
+                  >
+                    <span
+                      class="link-icon inline-flex hide-if-empty right-icon icon-push-to-edge"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="lqd-icn-ess icon-ion-ios-arrow-forward"
+                      ></i>
+                    </span>
+                    {{ page_content.petition.title }}
+                  </a>
+                </li>
+                {% endif %}
+                {% if page_content and page_content.hearing %}
+                <li class="mb-5 items-center">
+                  <a
+                    class="w-full bg-accent font-bold"
+                    href="#hearing"
+                    data-localscroll="true"
+                  >
+                    <span
+                      class="link-icon inline-flex hide-if-empty right-icon icon-push-to-edge"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="lqd-icn-ess icon-ion-ios-arrow-forward"
+                      ></i>
+                    </span>
+                    {{ page_content.hearing.title }}
+                  </a>
+                </li>
+                {% endif %}
+                {% if page_content and page_content.dispute_resolution %}
+                <li class="mb-5 items-center">
+                  <a
+                    class="w-full bg-accent font-bold"
+                    href="#dispute-resolution"
+                    data-localscroll="true"
+                  >
+                    <span
+                      class="link-icon inline-flex hide-if-empty right-icon icon-push-to-edge"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="lqd-icn-ess icon-ion-ios-arrow-forward"
+                      ></i>
+                    </span>
+                    {{ page_content.dispute_resolution.title }}
+                  </a>
+                </li>
+                {% endif %}
+              </ul>
+            </div>
+          </div>

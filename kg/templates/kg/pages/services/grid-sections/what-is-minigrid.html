@@ -1,0 +1,31 @@
+{% load static %}
+
+
+{% if page_content and page_content.what_is_a_mini_grid %}
+<div class="w-full relative" id="what-is-mini-grid">
+        <h3 class="ld-fh-element relative mb-1em text-24">
+            {{ page_content.what_is_a_mini_grid.title }}
+          </h3>
+          <div class="w-full relative">
+            <p class="ld-fh-element relative mb-1em">
+              {% for pg_content in page_content.what_is_a_mini_grid.content %}
+              {{ pg_content|safe}}
+              {% endfor %}
+            </p>
+          </div>
+        </div>
+{% endif %}
+
+
+
+          <!-- <h3 class="ld-fh-element relative mb-1em text-24">
+            What is a Mini-grid?
+          </h3>
+          <div class="w-full relative">
+            <p class="ld-fh-element relative mb-1em">
+              A mini-grid here means an integrated local generation and distribution 
+              system with installed capacity below 1MW, capable of serving numerous end‐users 
+              independent of the national grid. It may be ‘isolated’ with no link to any other network 
+              or ‘interconnected’ with the main grid such that energy exchange is possible between them.
+            </p>
+          </div> -->

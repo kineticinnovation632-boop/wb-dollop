@@ -1,0 +1,135 @@
+{% load static %}
+<!DOCTYPE html>
+<html
+  lang="en"
+  style="
+    --lqd-mobile-sec-height: 0px;
+    --lqd-sticky-header-height: 0px;
+    --lqd-sticky-header-placeholder-height: 121px;
+    --lqd-sticky-header-sentinel-top: var(
+      --lqd-sticky-header-placeholder-height
+    );
+  "
+>
+  <head>
+    <!-- Head styles copied -->
+    {% include 'kg/components/layouts/load-head-styles.html' %}
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="keywords"
+      content="Kerc, KERC, kerc, nerc, electric, electricity services, utility bill, kogi utility bill, 2024 utility bill aedc, energy service, sources of energy, energy, renewal energy, energy price consumption, electric company, electrician, light companies, prepaid electricity, gov electricity, electricity regulatory commission, electricity commission, electricity regulators, power systems, wires, electric meter, renewable energy companies, solar pv system, solar electricity, electricity supply, electric power, electricity meter, electric energy, pay electricity bill online, clean energy companies, renewable energy examples, solar powered, power distribution, electric smart meter, prepayment meter, electric grid, renewable energy solutions, prepaid electricity meters, hydro power, renewable source of energy, utility bill payment, electricity payment, buypower ng, pay my electric bill, online light bill payment, utility bill payment online, electric substation, electric sub, electric subscription, pay utility bill online, electricity payment online, utilities payment, utilitypaymentonline, pay my light bill, pay electricity online, smart prepaid meter, kogi electricity customer care number, electric ity, solar panel installation cost, electricity bill, solar power system, smart meters, electricity bill payment, light bill, kogi aedc branches, a non-profit, scientific research organization, kogi state electricity regulatory commission, aedc, aedc bill, electric pay bill, pay my power bill, utility online bill pay, pay electricity, utility pay, vtpass electricity bill, pay utilities"
+    />
+    <meta name="author" content="Kinetic Innovation Ltd" />
+    <meta
+      name="description"
+      content="Kogi State Electricity Regulatory Commission (KERC), we are dedicated to ensuring sustainable and reliable supply of electricity across the state."
+    />
+    <meta
+      property="og:title"
+      content="KERC | Kogi State Electricity Regulatory Commission"
+    />
+    <meta property="og:url" content="https://kerc.kg.gov.ng" />
+    <meta
+      property="og:description"
+      content="Kogi State Electricity Regulatory Commission (KERC), we are dedicated to ensuring sustainable and reliable supply of electricity across the state."
+    />
+    <meta
+      property="og:image"
+      content="{% static 'kg/assets/images/common/og-image.jpg' %}"
+    />
+    <meta
+      property="og:site_name"
+      content="KERC | Kogi State Electricity Regulatory Commission"
+    />
+    <meta property="og:type" content="website" />
+    <!-- <meta property="og:image" content="./assets/images/common/og-image.jpg"> -->
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{% static 'kg/assets/images/demo/company/favicon.ico' %}"
+    />
+    
+    <!-- Load Styles -->
+    {% include 'kg/components/layouts/page-styles.html' %}
+
+    <title>
+      {% block page-title-content %} KERC {% endblock %} | Kogi State
+      Electricity Regulatory Commission
+    </title>
+  </head>
+  <body
+    class="lqd-preloader-style-fade lqd-sticky-footer-shadow-2 lqd-search-style-slide-top"
+    data-localscroll-offset="72"
+    data-mobile-nav-breakpoint="1199"
+    data-mobile-nav-style="classic"
+    data-mobile-nav-scheme="light"
+    data-mobile-nav-trigger-alignment="right"
+    data-mobile-header-scheme="gray"
+    data-mobile-logo-alignment="default"
+    data-overlay-onmobile="false"
+  >
+    <div class="bg-white" id="wrap">      
+
+      <div class="lqd-sticky-placeholder hidden"></div>
+        {% include 'kg/components/layouts/page-header.html' %}
+      <main
+        class="content bg-white bg-repeat"
+        id="lqd-site-content"
+        style="
+          background-image: url(/static/kg/assets/images/demo/company/bg-lines.svg);
+        "
+      >
+        <div id="lqd-contents-wrap">{% block content %} {% endblock %}</div>
+      </main>
+
+      <!-- Start Back To Top Button -->
+      <div class="lqd-back-to-top fixed" data-back-to-top="true">
+        <a
+          href="#wrap"
+          class="inline-flex items-center justify-center rounded-full relative overflow-hidden"
+          data-localscroll="true"
+        >
+          <svg
+            class="inline-block"
+            xmlns="http://www.w3.org/2000/svg"
+            width="21"
+            height="32"
+            viewbox="0 0 21 32"
+            style="width: 1em; height: 1em"
+          >
+            <path
+              fill="white"
+              d="M10.5 13.625l-7.938 7.938c-.562.562-1.562.562-2.124 0C.124 21.25 0 20.875 0 20.5s.125-.75.438-1.063L9.5 10.376c.563-.563 1.5-.5 2.063.063l9 9c.562.562.562 1.562 0 2.125s-1.563.562-2.125 0z"
+            ></path>
+          </svg>
+        </a>
+      </div>
+      <!-- End Back To Top Button -->
+
+      <!-- Footer Block Content -->
+      {% include 'kg/components/layouts/page-footer.html' %}
+    </div>
+
+   <!-- Word Press Button -->
+    {% include 'kg/components/layouts/word-press-btn.html' %}
+
+    <!-- Load Page Scripts -->
+     {% include 'kg/components/layouts/base-scripts.html' %}
+     <!-- Load Extra Scripts -->
+     {% block extra_script %} {% endblock %}
+
+    <!-- Start custom cursor -->
+    <div class="lqd-cc lqd-cc--inner fixed pointer-events-none"></div>
+    {% block from-home-page %}
+        <!-- Add Custom Cursor -->
+        {% include 'kg/components/layouts/custom-cursor.html' %}
+        <!-- Add Templates & Litty -->
+        {% include 'kg/components/layouts/custom-templates.html' %}
+    {% endblock %}
+
+    <!-- Add Pop a News Content -->
+    {% include 'kg/components/layouts/pop-a-news.html' %}
+  </body>
+</html>

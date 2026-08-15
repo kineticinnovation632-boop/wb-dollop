@@ -1,0 +1,101 @@
+{% load static %}
+
+<!-- Start News Articles -->
+<section class="lqd-section blog pt-100 pb-55" id="blog">
+  <div class="container">
+    <div class="row">
+      <div class="col col-12 mb-40">
+        <div class="w-full flex flex-col items-center text-center">
+          <div class="ld-fancy-heading relative w-full">
+            <h2 class="ld-fh-element mb-0/5em inline-block relative">
+              Recent News & Updates
+            </h2>
+          </div>
+        </div>
+      </div>
+      {% if news %}
+      <div class="col col-12">
+        <div class="row -mr-15 -ml-15">
+          {% for nws in news %}
+
+          <div class="col col-sm-6 col-lg-4 mb-30 px-15 py-0">
+            <article
+              class="lqd-lp relative lqd-lp-style-6 lqd-lp-hover-img-zoom lqd-lp-animate-onhover rounded-4 overflow-hidden text-start post type-post status-publish format-standard has-post-thumbnail hentry category-blog-single tag-spain tag-travel"
+            >
+              <div class="lqd-lp-img overflow-hidden">
+                
+                <figure>
+                  <img
+                    width="720"
+                    height="510"
+                    src="{{nws.img}}"
+                    alt="{{nws.title}}"
+                  />
+                </figure>
+                
+                <div class="lqd-lp-meta uppercase font-bold relative z-3">
+                  <span class="screen-reader-text">Tags</span>
+                  <ul
+                    class="lqd-lp-cat lqd-lp-cat-shaped lqd-lp-cat-solid reset-ul inline-ul font-bold uppercase tracking-0/1em"
+                  >
+                    <li>
+                      <a
+                        class="rounded-full"
+                        href="{% url 'kg:blog' nws.slug %}"
+                        rel="category"
+                        >Read more</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <header class="lqd-lp-header p-2rem">
+                <div
+                  class="lqd-lp-meta lqd-lp-meta-dot-between flex flex-wrap items-center uppercase tracking-0/1em font-bold"
+                >
+                  <div class="lqd-lp-author relative z-3">
+                    <div class="lqd-lp-author-info">
+                      <h3 class="mt-0 mb-0 h5">
+                        <a href="#">{{nws.sub_title}}</a>
+                      </h3>
+                    </div>
+                  </div>
+                  <time class="lqd-lp-date" datetime="{{nws.published_at}}"
+                    >{{nws.published_at}}</time
+                  >
+                </div>
+                <h2 class="entry-title lqd-lp-title mt-0/75em mb-0 h5">
+                  {{nws.title}}
+                </h2>
+              </header>
+            </article>
+          </div>
+
+          {% endfor %}
+        </div>
+      </div>
+      <!-- Load more news articles -->
+      <div class="w-full pt-15">
+        <div class="text-center p-10">
+          <a
+            href="{% url 'kg:news' %}"
+            class="btn button whitespace-nowrap btn-naked btn-icon-right btn-hover-reveal font-bold text-secondary text-15"
+            rel="nofollow"
+          >
+            <span class="btn-txt mr-5" data-text="Load more news"
+              >Load more news</span
+            >
+            <span class="btn-icon text-1/15em">
+              <i
+                aria-hidden="true"
+                class="lqd-icn-ess icon-md-arrow-round-forward-2"
+              ></i>
+            </span>
+          </a>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+<!-- End News Articles -->

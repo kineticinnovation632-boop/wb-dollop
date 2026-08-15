@@ -1,0 +1,178 @@
+{% extends "kg/base-2.html" %} {% load static %} {% block page-title-content %}
+Create a review for: {{data.title }} {% endblock %} {% block service-titlebar %}
+{% load static i18n crispy_forms_tags %}
+
+<div class="titlebar-col col-12 col-lg-8 col-xl-6 px-15">
+  <h1>{% if data %} {{data.sub_title}}{% endif %}</h1>
+  <a
+    class="titlebar-scroll-link"
+    href="#lqd-site-content"
+    data-localscroll="true"
+  >
+    <i class="lqd-icn-ess icon-ion-ios-arrow-down"></i>
+  </a>
+</div>
+
+{% endblock %} {% block content %}
+<!-- Start What We Do -->
+{% if data %}
+
+<section
+  class="lqd-section has-accordion-page pt-100 bg-gray-200"
+  style="margin-bottom: 3rem"
+>
+  <div class="container">
+    {% if data.has_timer %}
+    <div class="row">
+      <div
+        class="w-full relative flex items-center pl-20percent rounded-8 z-1 module-col"
+      >
+        <h3
+          class="lqd-iconbox-heading mb-1/5em text-16 leading-1em font-normal text-black-60"
+          style="color: red"
+        >
+          {{data.has_timer}}
+        </h3>
+      </div>
+    </div>
+    {% endif %}
+    <div class="row">
+      <div class="col col-12 col-xl-6 p-0">
+        <div
+          class="w-full relative flex items-center pl-20percent rounded-8 z-1 module-col"
+          data-parallax="true"
+          data-parallax-options='{"ease":["linear"],"start":"top bottom","end":"bottom+=0px top"}'
+          data-parallax-from='{"y":"60px"}'
+          data-parallax-to='{"y":"-75px"}'
+        >
+          <div
+            class="lqd-imggrp-single block pos-rel rounded-inherit"
+            data-shadow-style="4"
+          >
+            <div
+              class="lqd-imggrp-img-container inline-flex pos-rel items-center justify-center rounded-inherit"
+            >
+              <div
+                class="flex flex-col transition-all rounded-10 bg-white p-45 lg:w-full module-contact"
+              >
+                <h3 class="ld-fh-element relative mb-1/5em">
+                  Document Review:
+                </h3>
+                <h3
+                  class="lqd-iconbox-heading mb-0/7em text-16 leading-1em font-normal text-black-60"
+                >
+                  Would like to share your thought with us?
+                </h3>
+                <form
+                  method="POST"
+                  class="col-lg-6"
+                  style="padding: 1rem; width: 100%"
+                  action="{% url 'kg:review' data.id %}"
+                >
+                  {% csrf_token %}
+                  <div
+                    id="div_id_name"
+                    class="mb-3"
+                    style="margin-bottom: 0.5rem"
+                  >
+                    <label for="id_name" class="form-label"> Name </label>
+                    <input
+                      type="text"
+                      name="name"
+                      maxlength="150"
+                      class="textinput form-control"
+                      id="id_name"
+                      style="width: 90%"
+                    />
+                  </div>
+                  <div
+                    id="div_id_email"
+                    class="mb-3"
+                    style="margin-bottom: 0.5rem"
+                  >
+                    <label for="id_email" class="form-label"> Email </label>
+                    <input
+                      type="email"
+                      name="email"
+                      maxlength="100"
+                      class="emailinput form-control"
+                      id="id_email"
+                      style="width: 90%"
+                    />
+                  </div>
+                  <div
+                    id="div_id_rating"
+                    class="mb-3"
+                    style="margin-bottom: 0.5rem"
+                  >
+                    <label for="id_rating" class="form-label requiredField">
+                      Rating<span class="asteriskField">*</span>
+                    </label>
+                    <select
+                      name="rating"
+                      class="select form-select"
+                      id="id_rating"
+                      style="width: 90%; padding: 0.5rem"
+                    >
+                      <option value="0" selected="">No Review Yet</option>
+                      <option value="1">1 Star</option>
+                      <option value="2">2 Stars</option>
+                      <option value="3">3 Stars</option>
+                      <option value="4">4 Stars</option>
+                      <option value="5">5 Stars</option>
+                    </select>
+                  </div>
+                  <div
+                    id="div_id_comment"
+                    class="mb-3"
+                    style="margin-bottom: 0.5rem"
+                  >
+                    <label for="id_comment" class="form-label requiredField">
+                      Comment<span class="asteriskField">*</span>
+                    </label>
+                    <textarea
+                      name="comment"
+                      cols="40"
+                      rows="5"
+                      class="textarea form-control"
+                      required=""
+                      id="id_comment"
+                    ></textarea>
+                  </div>
+                  <button
+                    class="mb-0 font-bold text-secondary bg-primary has-spinner text-16 hover:bg-secondary hover:text-white"
+                    type="submit"
+                    style="outline: none; border: none; padding: 0.5rem 1rem"
+                  >
+                    Submit
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col col-12 col-xl-6">
+        <h2 class="ld-fh-element relative mb-0/5em text-40">
+          {{data.title}} - {{data.event_actual_date}}
+        </h2>
+        <a
+          href="{{data.docs}}"
+          class="btn btn-naked leading-16"
+          target="_blank"
+        >
+          <span
+            class="btn-txt"
+            data-text="Click here to download {{document.title}}"
+            >Download {{document.title}}</span
+          >
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endif %}
+<!-- End What We Do -->
+
+{% endblock %}

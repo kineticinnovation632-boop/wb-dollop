@@ -1,0 +1,58 @@
+{% extends "kg/components/base-2.html" %} {% load static %} {% block page-title-content %}
+{{ developer.name | default:'N/A' }} - Interested Developers {% endblock %}{% block service-titlebar %}
+
+<div class="titlebar-col col-12 col-lg-8 col-xl-6 px-15">
+  <h1>{{ developer.name }}</h1>
+  <p class="mb-1/5em">List of sites for {{ developer.name | default:'N/A' }}.</p>
+  <a
+    class="titlebar-scroll-link"
+    href="#lqd-site-content"
+    data-localscroll="true"
+  >
+    <i class="lqd-icn-ess icon-ion-ios-arrow-down"></i>
+  </a>
+</div>
+
+{% endblock %} {% block content %}
+<section class="lqd-section has-accordion-page pt-100 bg-gray-200">
+  <div class="container">
+    <div class="row">
+      <h2 class="ld-fh-element relative mb-0/5em text-40">
+        Company - {{ developer.name | default:'N/A' }} Sites
+      </h2>
+
+      <table class="table mb-4em" id="tb-exclusive" style="overflow-x: scroll">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Site Name</th>
+            <th scope="col">Operator / Developer</th>
+            <th scope="col">Site Address</th>
+            <th scope="col">Capacity (KW/MH)</th>
+            <th scope="col">Local Government Area</th>
+            <th scope="col">Permit Status</th>
+            <th scope="col">Remark</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% if sites %}
+          <!-- Sites -->
+          {% for site in sites %}
+          <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{site.name}}</td>
+            <td>{{developer.name | default:'N/A'}}</td>
+            <td>{{site.address}}</td>
+            <td>{{ site.capacity }}</td>
+            <td>{{site.lga}}</td>
+            <td>{{site.permit_status}}</td>
+            <td>{{site.remark}}</td>
+          </tr>
+          {% endfor %} {% endif %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
