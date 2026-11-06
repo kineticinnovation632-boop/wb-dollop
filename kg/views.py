@@ -109,6 +109,20 @@ def standard_view(request):
 
     return render(request, url, {'documents': results, 'pages': pages, 'title': 'Standard & Rules'})
 
+def draft_regulation_view(request):
+    url = 'kg/pages/regulations/draft.html'
+    apiH = KgHelper()
+    apiH.req = request.GET
+    apiH.modal = 'regulations'
+    apiH.page_modal = 'draft'
+
+    route = apiH.get_route(wb='DRAFT')
+    draft = apiH.get_documents(route=route) or []
+    pages = draft.get('pages', []) if draft else []
+    results = draft.get('results', []) if draft else []
+
+    return render(request, url, {'documents': results, 'pages': pages, 'title': 'Draft Regulations'})
+
 def kerc_form_view(request):
     url = 'kg/pages/regulations/kerc-form.html'
     apiH = KgHelper()

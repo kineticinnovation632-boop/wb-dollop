@@ -19,6 +19,7 @@ urlpatterns = [
     path('petition/', views.petition_view, name='petition'),
     path('regulations/', views.regulation_view, name='regulations'),
     path('standard/', views.standard_view, name='standard'),
+    path('draft-documents/', views.draft_regulation_view, name='drafts'),
     path('right-obligation/', views.obligation_view, name='right-obligation'),
     path('search_result/', views.search_result_view, name='finder'),
     path('mini-grid/', views.minigrid_view, name='mini-grid'),

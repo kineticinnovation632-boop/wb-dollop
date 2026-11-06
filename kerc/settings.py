@@ -28,9 +28,8 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env.bool('DEBUG')
-AHOSTS = env.list('ALLOWED_HOSTS')
-ALLOWED_HOSTS = not DEBUG and ['*'] or AHOSTS
+DEBUG = env.bool('DEBUG', False)
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['localhost', '127.0.0.1'])
 
 
 # Application definition
@@ -140,34 +139,43 @@ USE_TZ = True
 # make sure to add the below to your settings.py file
 # STATIC_URL = 'static/'
 # STATIC_ROOT = '/home/kerckggo/public_html/static'
+# Static & Media with Spaces/S3
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIR = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [str(APPS_DIR / "static")]
 
-
-
-STORAGES = {
-    "default": {
-        "BACKEND": "storages.backends.s3.S3Storage",
-        "OPTIONS": {
-          "access_key": os.environ.get("AWS_ACCESS_KEY_ID"),
-          "secret_key": os.environ.get("AWS_SECRET_ACCESS_KEY"),
-          "bucket_name": os.environ.get("AWS_STORAGE_BUCKET_NAME"),
-          "endpoint_url": os.environ.get("AWS_S3_ENDPOINT_URL"),
-          "location": "media",
-          "default_acl": "public-read",
-          "custom_domain": os.environ.get("AWS_CUSTOM_DOMAIN"),
+if DEBUG:
+    # Local dev: save uploads to local media folder
+    DEFAULT_FILE_STORAGE = "django.core.files.storage.FileSystemStorage"
+    MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+    MEDIA_URL = "/media/"
+else:
+    STORAGES = {
+        "default": {
+            "BACKEND": "storages.backends.s3.S3Storage",
+            "OPTIONS": {
+            "access_key": os.environ.get("AWS_ACCESS_KEY_ID"),
+            "secret_key": os.environ.get("AWS_SECRET_ACCESS_KEY"),
+            "bucket_name": os.environ.get("AWS_STORAGE_BUCKET_NAME"),
+            "endpoint_url": os.environ.get("AWS_S3_ENDPOINT_URL"),
+            "location": "media",
+            "default_acl": "public-read",
+            "custom_domain": os.environ.get("AWS_CUSTOM_DOMAIN"),
+            },
         },
-    },
-    "staticfiles": {
-        "BACKEND": "storages.backends.s3.S3Storage",
-        "OPTIONS": {
-          "access_key": os.environ.get("AWS_ACCESS_KEY_ID"),
-          "secret_key": os.environ.get("AWS_SECRET_ACCESS_KEY"),
-          "bucket_name": os.environ.get("AWS_STORAGE_BUCKET_NAME"),
-          "endpoint_url": os.environ.get("AWS_S3_ENDPOINT_URL"),
-          "location": "static",
-          "default_acl": "public-read",
+        "staticfiles": {
+            "BACKEND": "storages.backends.s3.S3Storage",
+            "OPTIONS": {
+            "access_key": os.environ.get("AWS_ACCESS_KEY_ID"),
+            "secret_key": os.environ.get("AWS_SECRET_ACCESS_KEY"),
+            "bucket_name": os.environ.get("AWS_STORAGE_BUCKET_NAME"),
+            "endpoint_url": os.environ.get("AWS_S3_ENDPOINT_URL"),
+            "location": "static",
+            "default_acl": "public-read",
+            },
         },
-    },
-}
+    }
 
 
 
@@ -182,5 +190,5 @@ FORM_RENDERER = "django.forms.renderers.TemplatesSetting"
 # http://django-crispy-forms.readthedocs.io/en/latest/install.html#template-packs
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 ADMIN_URL = not DEBUG and env('ADMIN_URL') or 'admin/'
-API_URL = not DEBUG and env('API_URL') or 'localhost:8000'
+API_URL = not DEBUG and env('API_URL') or 'http://127.0.0.1:8000'
 URL_ADDRESS = API_URL

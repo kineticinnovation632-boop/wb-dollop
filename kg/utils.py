@@ -109,11 +109,11 @@ class KgHelper:
         return categorized_posts
 
     def get_news_and_pinned_events(self, posts):
-        
         categorized_posts = {
             'event': None,
             'upcoming_events': [],
             'featured_posts': [],
+            'draft': [],
             'news': [],
             'page_contents': self.has_page_contents(posts)
         }
@@ -124,10 +124,10 @@ class KgHelper:
             for post in results:       
                 post_type = post.get('post_type')
                 post_status = post.get('event_status')
-
+            
                 if post_status == 'PINNED':
                     categorized_posts['event'] = post
-                elif post.get('feature_post') == 'FEATURED':
+                elif post.get('feature_post') == 'FEATURED' or post.get('regulation_type') == 'DRAFT':
                     categorized_posts['featured_posts'].append(post)
                 elif post_type == 'NEWS':
                     categorized_posts['news'].append(post)

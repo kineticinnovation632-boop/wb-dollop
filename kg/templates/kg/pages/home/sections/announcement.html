@@ -123,13 +123,28 @@
                               <h6
                                 class="ld-fh-element inline-block relative m-0 text-white text-12 tracking-1 uppercase"
                               >
-                                {{ post.news_category }}
+                                {% if post.event_category %}
+                                  {{ post.event_category }}
+                                {% elif post.news_category %}
+                                  {{ post.news_category }}
+                                {% else %}
+                                  {% if post.regulation_type %}
+                                    Draft Documents
+                                  {% else %}
+                                    Uncategorized
+                                  {% endif %}
+                                {% endif %}
+                                
                               </h6>
                             </div>
                             <div class="spacer w-full"><div class="w-full h-20"></div></div>
                             <div class="ld-fancy-heading relative lqd-unit-animation-done" style="">
                               <h2 class="mb-0/35em ld-fh-element inline-block relative h1">
-                                {{ post.sub_title }}
+                                {% if post.sub_title %}
+                                  {{ post.sub_title | truncatewords:5 }}
+                                {% elif post.title %}
+                                  {{ post.title | truncatewords:5 }}
+                                {% endif %}
                               </h2>
                             </div>
                             <div
@@ -141,16 +156,38 @@
                                 
                                 {% if post.content and post.content|length > 0 %}
                                 {% for content_item in post.content %}
-                                {% if forloop.first %}
-                                  {{ content_item|truncatewords:20|safe }}
-                                {% endif %}
-                                
+                                  {% if forloop.first %}
+                                    {{ content_item|truncatewords:20|safe }}
+                                  {% endif %}
                                 {% endfor %}
-                                {% endif %}
+                                {% elif post.regulation_type %}
+                                  {{ post.description | default:"This is a draft regulatory document. It is currently open for review and public comment." }}
+                                {% endif %}                           
                                 
                               </p>
                               
                             </div>
+                            {% if post.regulation_type %}
+                            <a
+                              href="{% url 'kg:read-regulation' id=post.slug %}"
+                              class="text-black btn text-15 font-medium whitespace-nowrap btn-naked btn-icon-right btn-hover-swp btn-has-label lqd-unit-animation-done"
+                              data-localscroll="true"
+                              
+                              ><span class="btn-txt" data-text="Continue reading"
+                                >Continue reading</span
+                              >
+                              <span class="btn-icon"
+                                ><i
+                                  aria-hidden="true"
+                                  class="lqd-icn-ess icon-ion-ios-arrow-forward"
+                                ></i> </span
+                              ><span class="btn-icon"
+                                ><i
+                                  aria-hidden="true"
+                                  class="lqd-icn-ess icon-ion-ios-arrow-forward"
+                                ></i></span
+                            ></a>
+                            {% else %}
                             <a
                               href="{% url 'kg:blog' post.slug %}"
                               class="text-black btn text-15 font-medium whitespace-nowrap btn-naked btn-icon-right btn-hover-swp btn-has-label lqd-unit-animation-done"
@@ -170,6 +207,7 @@
                                   class="lqd-icn-ess icon-ion-ios-arrow-forward"
                                 ></i></span
                             ></a>
+                            {% endif %}
                           </div>
                         </div>
                       </div>
