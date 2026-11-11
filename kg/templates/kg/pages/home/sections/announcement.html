@@ -123,9 +123,9 @@
                               <h6
                                 class="ld-fh-element inline-block relative m-0 text-white text-12 tracking-1 uppercase"
                               >
-                                {% if post.event_category %}
+                                {% if post.event_category is not None and post.event_category != 'NONE' %}
                                   {{ post.event_category }}
-                                {% elif post.news_category %}
+                                {% elif post.news_category is not None and post.news_category != 'NONE' %}
                                   {{ post.news_category }}
                                 {% else %}
                                   {% if post.regulation_type %}
